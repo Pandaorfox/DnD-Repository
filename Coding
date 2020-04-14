@@ -1,3 +1,4 @@
+
 def main_story():
   print("Welcome adventurer, what is your name?")
   name = input("Enter your name:")
@@ -19,13 +20,16 @@ def main_story():
 
 
 
-  print("''Contgradulations """ + name + """! You did it, you saved your mom. Along the way you have done many feats including:""" + + 
-  """. But their is so much more you could have done. Would you like to restartand try again: y/n."""
-  final_question = input(" y/n:"
+  print("Contgratulations " + str(name) + """! You did it, you saved your mom.
+    Along the way you have done many feats including:"""
+  ". But their is so much more you could have done. Would you like to restartand try again: y/n.")
+  
+  final_question = str(input("y/n:"))
 
-  if lower(final_question) == y:
+  if final_question == y:
     main_story()
-  elif lower(final_question) == n:
+  elif final_question == n:
     print("Bye")
   else:
     print("Couldnt understand that. Bye!")
+main_story()
