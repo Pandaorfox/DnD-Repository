@@ -1,4 +1,31 @@
-print("Welcome adventurer, what is your name?")
-name = input("Enter your name:")
-print("Hello " + name + ", welcome to a world full of wonders such as wizardry, combat, and treasure.")
-print("Your goal, if you choose to accept it, is to 
+def main_story():
+  print("Welcome adventurer, what is your name?")
+  name = input("Enter your name:")
+  print("Hello " + name + ", welcome to a world full of wonders such as wizardry, combat, and treasure.")
+  print("Your goal, if you choose to accept it, is to reach the underworld and save your mom")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  print("''Contgradulations """ + name + """! You did it, you saved your mom. Along the way you have done many feats including:""" + + 
+  """. But their is so much more you could have done. Would you like to restartand try again: y/n."""
+  final_question = input(" y/n:"
+
+  if lower(final_question) == y:
+    main_story()
+  elif lower(final_question) == n:
+    print("Bye")
+  else:
+    print("Couldnt understand that. Bye!")
