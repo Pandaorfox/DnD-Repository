@@ -1,1 +1,2 @@
+print("Welcome adventurer, what is your name?")
 name = input("Enter your name:")
