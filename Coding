@@ -1,2 +1,4 @@
 print("Welcome adventurer, what is your name?")
 name = input("Enter your name:")
+print("Hello " + name + ", welcome to a world full of wonders such as wizardry, combat, and treasure.")
+print("Your goal, if you choose to accept it, is to 
