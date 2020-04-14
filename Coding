@@ -1,1 +1,1 @@
-print("Code section")
+name = input("Enter your name:")
