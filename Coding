@@ -10,20 +10,78 @@ def main_story():
   Type "help" to find a list of commands and actions""")
   
   begining = input("What would you like to do. Type help if you have no clue whats going on.").lower()
+  
   if begining == "help":
     print("""To move, type “n” or “north” to go in the northern direction "s” to go in the southern direction, “e” to go east, and “w” to go west.
     You can also go up or down, if the situation suits those commands. 
     "Look" will give you a description of the area. "Pick up" will put an object into your inventory, which has a limited capacity. 
     Type "help" to find a list of commands and actions.""")
-    
     begining = input("What would you like to do. Type help if you have no clue whats going on.").lower()
-    
   elif begining == "look":
     print("""[to your west is a young girl crying in the corner] 
     [the door is to your east, and the is a bar to your north with a bartender behind it]
     [[ type “a” for action command, and “goto” followed by place to go there]]""")
     begining = input("What would you like to do. Type help if you have no clue whats going on.").lower()
   elif begining == "n":
+    print("Good evening to you weary adventurer, here’s to a quiet night after a long day, eh? What’ll it be?"")
+    1st_question = input("""Honey Mead - 1gp
+    Stiffler Amber Ale - 2gp
+    Bubbling Cider - 4gp
+    Wine - 8gp
+    Additional Actions:
+    Attack(May Incite Hostile Response)
+    Flee Engagement
+    Talk""").lower()
+    if 1st_question == "honey mead":
+      print("You have no money sorry.")
+      1st_question = input("""Honey Mead - 1gp
+      Stiffler Amber Ale - 2gp
+      Bubbling Cider - 4gp
+      Wine - 8gp
+      Additional Actions:
+      Attack(May Incite Hostile Response)
+      Flee Engagement
+      Talk""").lower()
+    elif 1st_question == "stiffler amber ale":
+      print("You have no money sorry.")
+      1st_question = input("""Honey Mead - 1gp
+      Stiffler Amber Ale - 2gp
+      Bubbling Cider - 4gp
+      Wine - 8gp
+      Additional Actions:
+      Attack(May Incite Hostile Response)
+      Flee Engagement
+      Talk""").lower()
+    elif 1st_question == "bubbling cider":
+      print("You have no money sorry.")
+      1st_question = input("""Honey Mead - 1gp
+      Stiffler Amber Ale - 2gp
+      Bubbling Cider - 4gp
+      Wine - 8gp
+      Additional Actions:
+      Attack(May Incite Hostile Response)
+      Flee Engagement
+      Talk""").lower()
+    elif 1st_question == "wine":
+      print("You have no money sorry.")
+      1st_question = input("""Honey Mead - 1gp
+      Stiffler Amber Ale - 2gp
+      Bubbling Cider - 4gp
+      Wine - 8gp
+      Additional Actions:
+      Attack(May Incite Hostile Response)
+      Flee Engagement
+      Talk""").lower()
+    elif 1st_question == "attack":
+      print("You attacked the bartender who promptly knocked you out.")
+      print("""[You awake in a medieval tavern. The fireplace crackles in the background, and the air smells of beer and meat.
+      Your head hurts badly and your vision is blurred.]""")
+      begining = input("What would you like to do. Type help if you have no clue whats going on.").lower()
+
+
+      
+
+
 
   
   
