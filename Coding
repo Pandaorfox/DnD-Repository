@@ -79,7 +79,7 @@ def main_story():
       begining = input("What would you like to do. Type help if you have no clue whats going on.").lower()
 
 
-      
+      Added some of the first encounters. This is going to be harder than I thought.
 
 
 
