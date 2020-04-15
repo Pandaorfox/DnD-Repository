@@ -3,14 +3,16 @@ def main_story():
   print("Welcome adventurer, what is your name?")
   name = input("Enter your name:")
   print("Hello " + name + ", welcome to a world full of wonders such as wizardry, combat, and treasure.")
-  print("Your goal, if you choose to accept it, is to reach the underworld and save your mom")
+  print("""You awake inside a tavern. The fire crackles in the background, emanating a fuzzy orange light. The air is warm and smells of beer and meat. 
+  To move, type “n” or “north” to go in the northern direction "s” to go in the southern direction, “e” to go east, and “w” to go west.
+  You can also go up or down, if the situation suits those commands. 
+  "Look" will give you a description of the area. "Pick up" will put an object into your inventory, which has a limited capacity. 
+  Type "help" to find a list of commands and actions""")
+
+  
 
 
 
-
-Me and MAson discussed the inner workings of our game, and started building the framework. Unfortunately we can continue until the story is ready.
-
-Add all the code for the story. Story not created yet.
 
 
 
