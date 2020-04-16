@@ -1,34 +1,41 @@
 """Michaela's feedback:
 
 This is looking good! 
-1. add comments
+1. add comments-Mason
 2. be very careful of spelling and grammar errors - these are easy ways to make your app uncredible
-3. rather than a series of if elif statements, use a dictionary for each option 
+3. rather than a series of if elif statements, use a dictionary for each option -Ender
 4. please add your names of who worked on what!
 
 """
 {
 
-begining = {"n", north1(), "w", west2(), "e", east(), "s", south(), "look", look(), "help", help(), "pick up", pick_up(),}
+begining = {"n", north1(), "w", west1(), "e", east1(), "s", south1(), "look", look1(), "help", help1(), "pick up", pick_up(),}
 
-def main_story():
-  print("Welcome adventurer, what is your name?")
-  name = input("Enter your name:")
-  print("Hello " + name + ", welcome to a world full of wonders such as wizardry, combat, and treasure.")
-  print("""You awake inside a tavern. The fire crackles in the background, emanating a fuzzy orange light. The air is warm and smells of beer and meat. 
-  To move, type “n” or “north” to go in the northern direction "s” to go in the southern direction, “e” to go east, and “w” to go west.
-  You can also go up or down, if the situation suits those commands. 
-  "Look" will give you a description of the area. "Pick up" will put an object into your inventory, which has a limited capacity. 
-  Type "help" to find a list of commands and actions""")
-  
-  begining = input("What would you like to do. Type help if you have no clue whats going on.").lower()
-  
-  if begining == "help":
+def help1():
     print("""To move, type “n” or “north” to go in the northern direction "s” to go in the southern direction, “e” to go east, and “w” to go west.
     You can also go up or down, if the situation suits those commands. 
     "Look" will give you a description of the area. "Pick up" will put an object into your inventory, which has a limited capacity. 
     Type "help" to find a list of commands and actions.""")
-    begining = input("What would you like to do. Type help if you have no clue whats going on.").lower()
+    main_story()
+def look1()
+   print("""[to your west is a young girl crying in the corner] 
+    [the door is to your east, and the is a bar to your north with a bartender behind it]
+    [[ type “a” for action command, and “goto” followed by place to go there]]""")
+    main_story()
+
+print("Welcome adventurer, what is your name?")
+name = input("Enter your name:")
+print("Hello " + name + ", welcome to a world full of wonders such as wizardry, combat, and treasure.")
+print("""You awake inside a tavern. The fire crackles in the background, emanating a fuzzy orange light. The air is warm and smells of beer and meat. 
+To move, type “n” or “north” to go in the northern direction "s” to go in the southern direction, “e” to go east, and “w” to go west.
+You can also go up or down, if the situation suits those commands. 
+"Look" will give you a description of the area. "Pick up" will put an object into your inventory, which has a limited capacity. 
+Type "help" to find a list of commands and actions""")
+
+def main_story()
+  Begining = input("What would you like to do. Type help if you have no clue whats going on.").lower()
+  begining["Begining"]
+  
   elif begining == "look":
     print("""[to your west is a young girl crying in the corner] 
     [the door is to your east, and the is a bar to your north with a bartender behind it]
