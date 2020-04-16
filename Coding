@@ -7,6 +7,10 @@ This is looking good!
 4. please add your names of who worked on what!
 
 """
+{
+
+begining = {"n", north1(), "w", west2(), "e", east(), "s", south(), "look", look(), "help", help(), "pick up", pick_up(),}
+
 def main_story():
   print("Welcome adventurer, what is your name?")
   name = input("Enter your name:")
@@ -117,3 +121,4 @@ def main_story():
   else:
     print("Couldnt understand that. Bye!")
 main_story()
+}-Ender
