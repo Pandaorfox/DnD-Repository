@@ -3,6 +3,8 @@ from tkinter import messagebox
 
 begining = {"n", north1(), "w", west1(), "e", east1(), "s", south1(), "look", look1(), "help", help1(), "pick up", pick_up(),}
 
+questcounter = 0
+
 def help1():
     print("""To move, type “n” or “north” to go in the northern direction "s” to go in the southern direction, “e” to go east, and “w” to go west.
     You can also go up or down, if the situation suits those commands. 
@@ -47,9 +49,21 @@ def west1():
         top.geometry("100x100")  
         messagebox.showinfo("Quest1","You have accepted this quest")  
         top.mainloop()  
+        if questcounter == 0:
+            questcounter += 1
+        else:
+            begining_story()
     elif girl_question == "no":
         begining_story()
-
+    else:
+        begining_story()
+def east1():
+   if questcounter => 1:
+        print("To the east is a door, wich you walk through")
+        first_story()
+    else:
+        print("Youre not strong enough yet please come back later.")
+        begining_story()
 
 print("Welcome adventurer, what is your name?")
 name = input("Enter your name:")
