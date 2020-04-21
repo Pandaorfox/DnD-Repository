@@ -64,6 +64,9 @@ def east1():
     else:
         print("Youre not strong enough yet please come back later.")
         begining_story()
+def south1():
+    print("A fireplace roars in frotnt of you.")
+    begining_story()
 
 print("Welcome adventurer, what is your name?")
 name = input("Enter your name:")
@@ -80,7 +83,10 @@ def begining_story()
   Begining = input("What would you like to do. Type help if you have no clue whats going on.").lower()
   begining["Begining"]
   
-    
+  
+begining_story()
+def first_story()
+    print("You step outside")
    
 
 
@@ -100,18 +106,16 @@ def begining_story()
 
 
 
-
+def end():
   print("Contgratulations " + str(name) + """! You did it, you saved your mom.
     Along the way you have done many feats including:"""
   ". But their is so much more you could have done. Would you like to restartand try again: y/n.")
   
   final_question = input("y/n:").lower()
 
-  if final_question == "y":
-    main_story()
-  elif final_question == "n":
-    print("Bye")
-  else:
-    print("Couldnt understand that. Bye!")
-main_story()
-}-Ender
+    if final_question == "y":
+        main_story()
+    elif final_question == "n":
+        print("Bye")
+    else:
+        print("Couldnt understand that. Bye!")
