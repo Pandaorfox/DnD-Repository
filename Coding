@@ -6,7 +6,9 @@ questcounter = 0
 
 def begining_story():
   print("""You awake in a medieval tavern. The fireplace crackles in the background, and the air smells of beer and meat.
-      Your head hurts badly and your vision is blurred.""")
+      Your head hurts badly and your vision is blurred.
+
+      """)
   Begining = input("What would you like to do. Type help if you have no clue whats going on.").lower()  
   begining = {"n": north1, "w": west1, "e": east1, "s": south1, "look": look1, "help": help1}
   begining[Begining]()
@@ -14,7 +16,9 @@ def begining_story():
   
 
 def help1():
-  print("""To move, type “n” or “north” to go in the northern direction "s” to go in the southern direction, “e” to go east, and “w” to go west.
+  print("""
+
+To move, type “n” or “north” to go in the northern direction "s” to go in the southern direction, “e” to go east, and “w” to go west.
   You can also go up or down, if the situation suits those commands. 
   "Look" will give you a description of the area. "Pick up" will put an object into your inventory, which has a limited capacity. 
   Type "help" to find a list of commands and actions.""")
@@ -22,9 +26,12 @@ def help1():
 
 
 def look1():
-  print("""[to your west is a young girl crying in the corner] 
-    [the door is to your east, and the is a bar to your north with a bartender behind it]
-    [[ type “a” for action command, and “goto” followed by place to go there]]""")
+  print("""
+
+To your west is a young girl crying in the corner 
+    the door is to your east, and the is a bar to your north with a bartender behind it
+
+     """)
   begining_story()
 
   
@@ -135,10 +142,14 @@ def end():
 
 print("Welcome adventurer, what is your name?")
 name = input("Enter your name:")
-print("Hello " + name + ", welcome to a world full of wonders such as wizardry, combat, and treasure.")
+print("Hello " + name + """, welcome to a world full of wonders, such as wizardry, combat, and treasure.
+
+      """)
 print("""To move, type “n” or “north” to go in the northern direction "s” to go in the southern direction, “e” to go east, and “w” to go west.
 You can also go up or down, if the situation suits those commands. 
 "Look" will give you a description of the area.  
-Type "help" to find a list of commands and actions""")
+Type "help" to find a list of commands and actions.
+
+""")
 
 begining_story()
