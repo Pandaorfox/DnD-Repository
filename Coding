@@ -7,9 +7,10 @@ questcounter = 0
 def begining_story():
   print("""You awake in a medieval tavern. The fireplace crackles in the background, and the air smells of beer and meat.
       Your head hurts badly and your vision is blurred.""")
-  Begining = input("What would you like to do. Type help if you have no clue whats going on.").lower()
-  begining[str(Begining)]
+  Begining = input("What would you like to do. Type help if you have no clue whats going on.").lower()  
   begining = {"n": north1(), "w": west1(), "e": east1(), "s": south1(), "look": look1(), "help": help1()}
+  begining[str(Begining)]
+  
   
 
 def help1():
