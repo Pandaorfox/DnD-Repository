@@ -72,6 +72,7 @@ def north1():
 
       
 def west1():
+  global questcounter
   print("A young girl asks 'Are you here to help me?'")
   girl_question = input("yes/no: ").lower()
   if girl_question == "yes":
@@ -79,6 +80,7 @@ def west1():
     messagebox.showinfo("Quest1","You have accepted this quest")   
     if questcounter == 0:
       questcounter += 1
+      tavern_floor()
     else:
       tavern_floor()
   elif girl_question == "no":
