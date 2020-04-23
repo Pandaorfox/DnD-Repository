@@ -2,13 +2,18 @@ from tkinter import *
 from tkinter import messagebox
 
 
-questcounter = 0
 
 def begining_story():
   print("""You awake in a medieval tavern. The fireplace crackles in the background, and the air smells of beer and meat.
       Your head hurts badly and your vision is blurred.
 
       """)
+  Begining = input("What would you like to do. Type help if you have no clue whats going on.").lower()  
+  begining = {"n": north1, "w": west1, "e": east1, "s": south1, "look": look1, "help": help1}
+  begining[Begining]()
+
+def tavern_floor():
+  print("You stand in the tavern.")
   Begining = input("What would you like to do. Type help if you have no clue whats going on.").lower()  
   begining = {"n": north1, "w": west1, "e": east1, "s": south1, "look": look1, "help": help1}
   begining[Begining]()
@@ -22,7 +27,7 @@ To move, type “n” or “north” to go in the northern direction "s” to go
   You can also go up or down, if the situation suits those commands. 
   "Look" will give you a description of the area. "Pick up" will put an object into your inventory, which has a limited capacity. 
   Type "help" to find a list of commands and actions.""")
-  begining_story()
+  tavern_floor()
 
 
 def look1():
@@ -32,7 +37,7 @@ To your west is a young girl crying in the corner
     the door is to your east, and the is a bar to your north with a bartender behind it
 
      """)
-  begining_story()
+  tavern_floor()
 
   
 def north1():
@@ -56,7 +61,7 @@ def north1():
     print("You have no money sorry.")
     north1()
   elif first_question == "flee engagement":
-    begining_story()
+    tavern_floor()
   else:
     print("You dwarf, speak clearly.")
     north1()
@@ -67,18 +72,15 @@ def west1():
   girl_question = input("yes/no: ").lower()
   if girl_question == "yes":
     print("Thank god somebody is here to help! I have lost my magical box, help me find it.")
-    top = Tk()  
-    top.geometry("100x100")  
-    messagebox.showinfo("Quest1","You have accepted this quest")  
-    top.mainloop()  
+    messagebox.showinfo("Quest1","You have accepted this quest")   
     if questcounter == 0:
       questcounter += 1
     else:
-      begining_story()
+      tavern_floor()
   elif girl_question == "no":
-    begining_story()
+    tavern_floor()
   else:
-    begining_story()
+    tavern_floor()
 
     
 def east1():
@@ -87,12 +89,12 @@ def east1():
       first_story()
   else:
       print("You see a door but youre not strong enough yet please come back later.")
-      begining_story()
+      tavern_floor()
 
       
 def south1():
-    print("A fireplace roars in frotnt of you.")
-    begining_story()
+    print("A fireplace roars in front of you. You reach out to touch it and get burned.")
+    tavern_floor()
 
 
 
@@ -107,22 +109,6 @@ def first_story():
    
 
 
- 
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
 def end():
   print("Contgratulations " + str(name) + """! You did it, you saved your mom.
     Along the way you have done many feats including . But their is so much more you could have done. Would you like to restartand try again: y/n.""")
@@ -130,7 +116,7 @@ def end():
   final_question = input("y/n:").lower()
 
   if final_question == "y":
-      main_story()
+      begining_story()
   elif final_question == "n":
       print("Bye")
   else:
@@ -151,5 +137,7 @@ You can also go up or down, if the situation suits those commands.
 Type "help" to find a list of commands and actions.
 
 """)
+
+questcounter = 0
 
 begining_story()
