@@ -1,7 +1,11 @@
 from tkinter import *
 from tkinter import messagebox
 
+tk = Tk()
 
+tk.title("Images")
+
+tk.geometry('0x0')
 
 def begining_story():
   print("""You awake in a medieval tavern. The fireplace crackles in the background, and the air smells of beer and meat.
@@ -141,3 +145,6 @@ Type "help" to find a list of commands and actions.
 questcounter = 0
 
 begining_story()
+
+
+tk.mainloop()
