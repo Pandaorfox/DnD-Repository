@@ -1,12 +1,4 @@
-from tkinter import *
-from tkinter import messagebox
-import random
 
-tk = Tk()
-
-tk.title("Images")
-
-tk.geometry('0x0')
 
 farmkey = 0
 
@@ -140,23 +132,4 @@ def south1():
 
 
 
-
-
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-tk.mainloop()
 
