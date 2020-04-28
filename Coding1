@@ -61,7 +61,40 @@ def north1():
     Before your mind went unconcious you could see them all looking at you hungrily.""")
     forest_floor()
   elif nymph == "seduce":
+      print("You wake up the next morning ready to get on with your day.")
+      farmhouse()
+  else:
+      forest_floor()
       
+def farmhouse():
+  print("""Before you is an old farmhouse. It appears empty and abandoned.
+          This old and rusty shed is surrounded by old hay, and the rotting dead carcases of farm animals. 
+          There is a large door waiting to be opened, but is locked tight by a large iron bolt.""")
+  farm = input("""What would you like to do?
+              -Key
+              -Lockpick
+              -Flee
+              -Sneak
+              """).lower()
+  if farm == "lockpick":
+    print("""You attemt to pick the lock with a wire you find on the ground. 
+    The wire breaks the moment you put it into the lock. Feeling frustration you attack it with a wooden plank. 
+    It also breaks.""")
+    farmhouse()
+  elif farm == "key":
+    if farm_key == 1:
+      print("The key unlocks he lock and you step inside.")
+      farm_end()
+    else:
+      print("You dont have a key dumb dumb")
+    farmhouse()
+  elif farm == "sneak":
+    print("""You try to go through a crack you see in the wall. 
+    Suddenly you hit a wall that wasnt there before and get knocked back. It happens every time you do this.""")
+  else:
+    forest_floor()
+
+
 def west1():
   global questcounter
   print("A young girl asks 'Are you here to help me?'")
