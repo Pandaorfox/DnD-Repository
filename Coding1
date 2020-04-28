@@ -1,9 +1,118 @@
-print("""You are in the midst of a uniquely unremarkable city afront rows of monotonously lifeless and dilapidated wood buildings mirrored across 
+from tkinter import *
+from tkinter import messagebox
+import random
+
+tk = Tk()
+
+tk.title("Images")
+
+tk.geometry('0x0')
+
+def first_story():
+  print("""You are in the midst of a uniquely unremarkable city afront rows of monotonously lifeless and dilapidated wood buildings mirrored across 
 the opposite side of an appropriately dull beaten dirt path.
 It seems the term lifeless not only fits the description of the tired architecture as you have yet to see even a rat scurry along the road. 
 The only thing that stands out amongst the infinite span of the somber town is the dense and towering wall of forestry up ahead. 
 I suppose something is better than nothing you tell yourself. 
 However, even at a distance, you can pick up the palpable feeling of a most vile evil befalling the forest.""")
+  First = input("What would you like to do. Type help if you have no clue whats going on.").lower()  
+  first = {"n": north2, "w": west2, "e": east2, "s": south2, "look": look2, "help": help2}
+  first[First]()
+
+def forest_floor():
+  print("You stand in a forest")
+  First = input("What would you like to do. Type help if you have no clue whats going on.").lower()  
+  first = {"n": north2, "w": west2, "e": east2, "s": south2, "look": look2, "help": help2}
+  first[First]()
+  
+  
+
+def help2():
+  print("""
+
+To move, type “n” or “north” to go in the northern direction "s” to go in the southern direction, “e” to go east, and “w” to go west.
+  You can also go up or down, if the situation suits those commands. 
+  "Look" will give you a description of the area. "Pick up" will put an object into your inventory, which has a limited capacity. 
+  Type "help" to find a list of commands and actions.""")
+  tavern_floor()
 
 
+def look2():
+  print("""
+
+To your west is rickety bridge. 
+    A wise looking tree is to your east, and  to your north is a farmhouse that looks like its falling apart.
+
+     """)
+  forest_floor()
+
+  
+def north1():
+  print("You walk torward the farmhouse, but run into a group of forest nymphs.")
+  print("You quickly count how many there are, but get to tired and stop halfway. All you know is that there is a lot.")
+  print("They start running at you and shriking madly.")
+  nymph = input("""What would you like to do?
+  -Attack
+  -Seduce
+  -Run
+  """).lower()
+  if nymph == "attack":
+    print("""You charge at them hoping to get a lucky punch. The one in the lead pushes you over and you get trampled on. 
+    Before your mind went unconcious you could see them all looking at you hungrily.""")
+    forest_floor()
+  elif nymph == "seduce":
+      
+def west1():
+  global questcounter
+  print("A young girl asks 'Are you here to help me?'")
+  girl_question = input("yes/no: ").lower()
+  if girl_question == "yes":
+    print("Thank god somebody is here to help! I have lost my magical box, help me find it.")
+    messagebox.showinfo("Quest1","You have accepted this quest")   
+    if questcounter == 0:
+      questcounter += 1
+      tavern_floor()
+    else:
+      tavern_floor()
+  elif girl_question == "no":
+    tavern_floor()
+  else:
+    tavern_floor()
+
+    
+def east1():
+  if questcounter >= 1:
+      print("To the east is a door, wich you walk through")
+      first_story()
+  else:
+      print("You see a door but youre not strong enough yet please come back later.")
+      tavern_floor()
+
+      
+def south1():
+    print("A fireplace roars in front of you. You reach out to touch it and get burned.")
+    tavern_floor()
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+tk.mainloop()
 
