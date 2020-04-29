@@ -35,13 +35,13 @@ def look2():
   print("""
 
 To your west is rickety bridge. 
-    A wise looking tree is to your east, and to your north is a farmhouse that looks like its falling apart.
+    A wise looking tree is to your east, and to your north is a farmhouse that looks like its falling apart. There is a lake to the south.
 
      """)
   forest_floor()
 
   
-def north1():
+def north2():
   print("You walk torward the farmhouse, but run into a group of forest nymphs.")
   print("You quickly count how many there are, but get to tired and stop halfway. All you know is that there is a lot.")
   print("They start running at you and shriking madly.")
@@ -89,7 +89,7 @@ def farmhouse():
     forest_floor()
 
 
-def west1():
+def west2():
   global farmkey
   
   print("""As you walk along the leaf-strewn path, you notice that the woods become more dense. 
@@ -121,7 +121,7 @@ def west1():
 
 
     
-def east1():
+def east2():
   print("""You walk torward the wise looking tree but stop in shock as it starts speaking to you.
         
          'What do you seek dear traveler' the Wise tree says.""")
@@ -135,10 +135,11 @@ def east1():
   elif wise_tree == "can you help me?":
     print("""Within the trees is the treasure you seek, well,well well, the secrets I keep. 
     Live, die, give up, or try, the way to salvation is through the other side.""")
-    
+  else:
+    forest_floor()
 
       
-def south1():
+def south2():
     print("A fireplace roars in front of you. You reach out to touch it and get burned.")
     tavern_floor()
 
