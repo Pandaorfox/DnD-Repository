@@ -1,3 +1,6 @@
+Mason can you please check this code for bugs while Im working on the other ones.
+
+
 from tkinter import *
 from tkinter import messagebox
 from Coding1 import *
