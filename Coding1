@@ -35,7 +35,7 @@ def look2():
   print("""
 
 To your west is rickety bridge. 
-    A wise looking tree is to your east, and  to your north is a farmhouse that looks like its falling apart.
+    A wise looking tree is to your east, and to your north is a farmhouse that looks like its falling apart.
 
      """)
   forest_floor()
@@ -108,21 +108,34 @@ def west1():
     When you look up the troll is dead with his own axe sticking up from his head.
     You search his body and kind a key. You try to cross the bridge but it colapses under you forcing you to retreat.""")
     farmkey += 1
+    forest_floor()
   elif troll == "catch":
     print("""For some reason you decided to catch a hundred pound axe.
     Needles to say you lost your arm, but an angel came down and said "I will regrow your arm but you will have to start over" """)
     forest_floor()
+  else: 
+    print("You run away with your life")
+    forest_floor()
     
+
 
 
     
 def east1():
-  if questcounter >= 1:
-      print("To the east is a door, wich you walk through")
-      first_story()
-  else:
-      print("You see a door but youre not strong enough yet please come back later.")
-      tavern_floor()
+  print("""You walk torward the wise looking tree but stop in shock as it starts speaking to you.
+        
+         'What do you seek dear traveler' the Wise tree says.""")
+  wise_tree = input("What would you like to ask?
+                     -Who are you?
+                     -Can you help me?
+                     -Flee
+                      """).lower()
+  if wise_tree == "who are you?":
+    print("I am the tree of wisdom, I understand all that is contained in this forest!")
+  elif wise_tree == "can you help me?":
+    print("""Within the trees is the treasure you seek, well,well well, the secrets I keep. 
+    Live, die, give up, or try, the way to salvation is through the other side.""")
+    
 
       
 def south1():
