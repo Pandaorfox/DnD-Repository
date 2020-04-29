@@ -140,8 +140,15 @@ def east2():
 
       
 def south2():
-    print("A fireplace roars in front of you. You reach out to touch it and get burned.")
-    tavern_floor()
+    print(""""You walk torward the lake but get stoped by some gaurds.
+           Gaurd: Halt do you have the shield?
+          """)
+    if shield == 1:
+      print("Gaurd: Ah okay you may go then.")
+      
+    else:
+      print("Gaurd: Hah he doesnt have the shield turn back then you arnt powerful enough.")
+      forest_floor()
 
 
 
