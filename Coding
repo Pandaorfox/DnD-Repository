@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
+from Coding1 import *
 
 tk = Tk()
 
@@ -112,7 +113,7 @@ def south1():
 
 def first_story():
     print("You step outside")
-   
+    Coding1()
 
 
 def end():
