@@ -1,156 +1,153 @@
+def Forest():
+  farmkey = 0
 
+  def first_story():
+    print("""You are in the midst of a uniquely unremarkable city afront rows of monotonously lifeless and dilapidated wood buildings mirrored across 
+  the opposite side of an appropriately dull beaten dirt path.
+  It seems the term lifeless not only fits the description of the tired architecture as you have yet to see even a rat scurry along the road. 
+  The only thing that stands out amongst the infinite span of the somber town is the dense and towering wall of forestry up ahead. 
+  I suppose something is better than nothing you tell yourself. 
+  However, even at a distance, you can pick up the palpable feeling of a most vile evil befalling the forest.""")
+    First = input("What would you like to do. Type help if you have no clue whats going on.").lower()  
+    first = {"north": north2, "west": west2, "east": east2, "south": south2, "look": look2, "help": help2}
+    first[First]()
 
-farmkey = 0
-
-def first_story():
-  print("""You are in the midst of a uniquely unremarkable city afront rows of monotonously lifeless and dilapidated wood buildings mirrored across 
-the opposite side of an appropriately dull beaten dirt path.
-It seems the term lifeless not only fits the description of the tired architecture as you have yet to see even a rat scurry along the road. 
-The only thing that stands out amongst the infinite span of the somber town is the dense and towering wall of forestry up ahead. 
-I suppose something is better than nothing you tell yourself. 
-However, even at a distance, you can pick up the palpable feeling of a most vile evil befalling the forest.""")
-  First = input("What would you like to do. Type help if you have no clue whats going on.").lower()  
-  first = {"n": north2, "w": west2, "e": east2, "s": south2, "look": look2, "help": help2}
-  first[First]()
-
-def forest_floor():
-  print("You stand in a forest")
-  First = input("What would you like to do. Type help if you have no clue whats going on.").lower()  
-  first = {"n": north2, "w": west2, "e": east2, "s": south2, "look": look2, "help": help2}
-  first[First]()
+  def forest_floor():
+    print("You stand in a forest")
+    First = input("What would you like to do. Type help if you have no clue whats going on.").lower()  
+    first = {"north": north2, "west": west2, "east": east2, "south": south2, "look": look2, "help": help2}
+    first[First]()
   
   
 
-def help2():
-  print("""
+  def help2():
+    print("""
 
-To move, type “n” or “north” to go in the northern direction "s” to go in the southern direction, “e” to go east, and “w” to go west.
-  You can also go up or down, if the situation suits those commands. 
-  "Look" will give you a description of the area. "Pick up" will put an object into your inventory, which has a limited capacity. 
-  Type "help" to find a list of commands and actions.""")
-  tavern_floor()
+  To move, type “n” or “north” to go in the northern direction "s” to go in the southern direction, “e” to go east, and “w” to go west.
+    You can also go up or down, if the situation suits those commands. 
+    "Look" will give you a description of the area. "Pick up" will put an object into your inventory, which has a limited capacity. 
+    Type "help" to find a list of commands and actions.""")
+    tavern_floor()
 
 
-def look2():
-  print("""
+  def look2():
+    print("""
 
-To your west is rickety bridge. 
-    A wise looking tree is to your east, and to your north is a farmhouse that looks like its falling apart. There is a lake to the south.
+  To your west is rickety bridge. 
+      A wise looking tree is to your east, and to your north is a farmhouse that looks like its falling apart. There is a lake to the south.
 
-     """)
-  forest_floor()
-
-  
-def north2():
-  print("You walk torward the farmhouse, but run into a group of forest nymphs.")
-  print("You quickly count how many there are, but get to tired and stop halfway. All you know is that there is a lot.")
-  print("They start running at you and shriking madly.")
-  nymph = input("""What would you like to do?
-  -Attack
-  -Seduce
-  -Run
-  """).lower()
-  if nymph == "attack":
-    print("""You charge at them hoping to get a lucky punch. The one in the lead pushes you over and you get trampled on. 
-    Before your mind went unconcious you could see them all looking at you hungrily.""")
+       """)
     forest_floor()
-  elif nymph == "seduce":
-      print("You wake up the next morning ready to get on with your day.")
+
+  
+  def north2():
+    print("You walk torward the farmhouse, but run into a group of forest nymphs.")
+    print("You quickly count how many there are, but get to tired and stop halfway. All you know is that there is a lot.")
+    print("They start running at you and shriking madly.")
+    nymph = input("""What would you like to do?
+    -Attack
+    -Seduce
+    -Run
+    """).lower()
+    if nymph == "attack":
+      print("""You charge at them hoping to get a lucky punch. The one in the lead pushes you over and you get trampled on. 
+      Before your mind went unconcious you could see them all looking at you hungrily.""")
+      forest_floor()
+    elif nymph == "seduce":
+        print("You wake up the next morning ready to get on with your day.")
+        farmhouse()
+    else:
+        forest_floor()
+      
+  def farmhouse():
+    print("""Before you is an old farmhouse. It appears empty and abandoned.
+            This old and rusty shed is surrounded by old hay, and the rotting dead carcases of farm animals. 
+            There is a large door waiting to be opened, but is locked tight by a large iron bolt.""")
+    farm = input("""What would you like to do?
+                -Key
+                -Lockpick
+                -Flee
+                -Sneak
+                """).lower()
+    if farm == "lockpick":
+      print("""You attemt to pick the lock with a wire you find on the ground. 
+      The wire breaks the moment you put it into the lock. Feeling frustration you attack it with a wooden plank. 
+      It also breaks.""")
       farmhouse()
-  else:
-      forest_floor()
-      
-def farmhouse():
-  print("""Before you is an old farmhouse. It appears empty and abandoned.
-          This old and rusty shed is surrounded by old hay, and the rotting dead carcases of farm animals. 
-          There is a large door waiting to be opened, but is locked tight by a large iron bolt.""")
-  farm = input("""What would you like to do?
-              -Key
-              -Lockpick
-              -Flee
-              -Sneak
-              """).lower()
-  if farm == "lockpick":
-    print("""You attemt to pick the lock with a wire you find on the ground. 
-    The wire breaks the moment you put it into the lock. Feeling frustration you attack it with a wooden plank. 
-    It also breaks.""")
-    farmhouse()
-  elif farm == "key":
-    if farm_key == 1:
-      print("The key unlocks he lock and you step inside.")
-      farm_end()
+    elif farm == "key":
+      if farm_key == 1:
+        print("The key unlocks he lock and you step inside.")
+        farm_end()
+      else:
+        print("You dont have a key dumb dumb")
+      farmhouse()
+    elif farm == "sneak":
+      print("""You try to go through a crack you see in the wall. 
+      Suddenly you hit a wall that wasnt there before and get knocked back. It happens every time you do this.""")
     else:
-      print("You dont have a key dumb dumb")
-    farmhouse()
-  elif farm == "sneak":
-    print("""You try to go through a crack you see in the wall. 
-    Suddenly you hit a wall that wasnt there before and get knocked back. It happens every time you do this.""")
-  else:
-    forest_floor()
+      forest_floor()
 
 
-def west2():
-  global farmkey
+  def west2():
+    global farmkey
   
-  print("""As you walk along the leaf-strewn path, you notice that the woods become more dense. 
-  The light of day is less visible as the trees grow larger and crowd together, their wide branches intertwining.
-  Birds also seem to be less common here, except for the occasional caw of a crow or raven.""")
-  print("You continue torward the direction of the bridge and you notice a smell.")
-  print("""A TROLL has come across your path!!! It looks at you with its beady, almost beetle like eyes as sap drips from its mouth. 
-  It throws a large axe in your direction, LOOK OUT!""")
-  troll = input("""What would you like to do?
-                  -Dodge
-                  -Catch
-                  -Flee
-                  """).lower()
-  if troll == "dodge":
-    print("""You dodge the axe and it hit a rock sending it flying in the air. 
-    When you look up the troll is dead with his own axe sticking up from his head.
-    You search his body and kind a key. You try to cross the bridge but it colapses under you forcing you to retreat.""")
-    farmkey += 1
-    forest_floor()
-  elif troll == "catch":
-    print("""For some reason you decided to catch a hundred pound axe.
-    Needles to say you lost your arm, but an angel came down and said "I will regrow your arm but you will have to start over" """)
-    forest_floor()
-  else: 
-    print("You run away with your life")
-    forest_floor()
+    print("""As you walk along the leaf-strewn path, you notice that the woods become more dense. 
+    The light of day is less visible as the trees grow larger and crowd together, their wide branches intertwining.
+    Birds also seem to be less common here, except for the occasional caw of a crow or raven.""")
+    print("You continue torward the direction of the bridge and you notice a smell.")
+    print("""A TROLL has come across your path!!! It looks at you with its beady, almost beetle like eyes as sap drips from its mouth. 
+    It throws a large axe in your direction, LOOK OUT!""")
+    troll = input("""What would you like to do?
+                    -Dodge
+                    -Catch
+                    -Flee
+                    """).lower()
+    if troll == "dodge":
+      print("""You dodge the axe and it hit a rock sending it flying in the air. 
+      When you look up the troll is dead with his own axe sticking up from his head.
+      You search his body and kind a key. You try to cross the bridge but it colapses under you forcing you to retreat.""")
+      farmkey += 1
+      forest_floor()
+    elif troll == "catch":
+      print("""For some reason you decided to catch a hundred pound axe.
+      Needles to say you lost your arm, but an angel came down and said "I will regrow your arm but you will have to start over" """)
+      forest_floor()
+    else: 
+      print("You run away with your life")
+      forest_floor()
     
 
 
 
     
-def east2():
-  print("""You walk torward the wise looking tree but stop in shock as it starts speaking to you.
+  def east2():
+    print("""You walk torward the wise looking tree but stop in shock as it starts speaking to you.
         
-         'What do you seek dear traveler' the Wise tree says.""")
-  wise_tree = input("What would you like to ask?
-                     -Who are you?
-                     -Can you help me?
-                     -Flee
-                      """).lower()
-  if wise_tree == "who are you?":
-    print("I am the tree of wisdom, I understand all that is contained in this forest!")
-  elif wise_tree == "can you help me?":
-    print("""Within the trees is the treasure you seek, well,well well, the secrets I keep. 
-    Live, die, give up, or try, the way to salvation is through the other side.""")
-  else:
-    forest_floor()
-
-      
-def south2():
-    print(""""You walk torward the lake but get stoped by some gaurds.
-           Gaurd: Halt do you have the shield?
-          """)
-    if shield == 1:
-      print("Gaurd: Ah okay you may go then.")
-      
+           'What do you seek dear traveler' the Wise tree says.""")
+    wise_tree = input("""What would you like to ask?
+                       -Who are you?
+                       -Can you help me?
+                       -Flee
+                        """).lower()
+    if wise_tree == "who are you?":
+      print("""I am the tree of wisdom, I understand all that is contained in this forest!""")
+    elif wise_tree == "can you help me?":
+      print("""Within the trees is the treasure you seek, well,well well, the secrets I keep. 
+      Live, die, give up, or try, the way to salvation is through the other side.""")
     else:
-      print("Gaurd: Hah he doesnt have the shield turn back then you arnt powerful enough.")
       forest_floor()
 
+      
+  def south2():
+      print("""You walk torward the lake but get stoped by some gaurds.
+             Gaurd: Halt do you have the shield? """)
+      if shield == 1:
+        print("Gaurd: Ah okay you may go then.")
+      
+      else:
+        print("Gaurd: Hah he doesnt have the shield turn back then you arnt powerful enough.")
+        forest_floor()
 
 
-
+  first_story()
 
