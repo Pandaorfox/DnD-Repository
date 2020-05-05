@@ -1,43 +1,53 @@
 from Coding1 import Forest
+from tkinter import *
+tk = Tk()
+
+tk.geometry('1000x1050')
 
 
 def begining_story():
-  print("Welcome adventurer, what is your name?")
-  name = input("Enter your name:")
-  print("Hello " + name + """, welcome to a world full of wonders, such as wizardry, combat, and treasure.
+  L1 = Label(tk, text="Welcome adventurer, what is your name? Enter your Name:")
+  L1.pack()
+  name = Entry(tk,width=10)
+  name.pack()
+  def clicked1():
+    res = Label(tk, text="Hello " + name.get() + ". Welcome to a world full of wonders, such as wizardry, combat, and treasure.")
+    res.pack()
+    basics = Label(tk, text="""To move, type “n” or “north” to go in the northern direction "s” to go in the southern direction, “e” to go east, and “w” to go west.
+                                     You can also go up or down, if the situation suits those commands. 
+                                     "Look" will give you a description of the area.  
+                                     Type "help" to find a list of commands and actions.
 
-      """)
-  print("""To move, type “n” or “north” to go in the northern direction "s” to go in the southern direction, “e” to go east, and “w” to go west.
-  You can also go up or down, if the situation suits those commands. 
-  "Look" will give you a description of the area.  
-  Type "help" to find a list of commands and actions.
-
-  """)
-  print("""You awake in a medieval tavern. The fireplace crackles in the background, and the air smells of beer and meat.
+You awake in a medieval tavern. The fireplace crackles in the background, and the air smells of beer and meat.
       Your head hurts badly and your vision is blurred.
 
-      """)
-  Begining = input("What would you like to do. Type help if you have no clue whats going on.").lower()  
-  begining = {"north": north1, "west": west1, "east": east1, "south": south1, "look": look1, "help": help1}
-  if Begining in begining.keys():
-    begining[Begining]()
-  else:
+                                     """)
+    basics.pack()
     tavern_floor()
+  btn = Button(tk, text="Save", command=clicked1)
+  btn.pack()
 
   
 def tavern_floor():
-  print("You stand in the tavern.")
-  Begining = input("What would you like to do. Type help if you have no clue whats going on.").lower()  
+  tavern = Label(tk, text="""You stand in the tavern.
+                 What would you like to do. Type help if you have no clue whats going on.""")
+  tavern.pack()
+  Begining = Entry(tk,width=10)
+  Begining.pack()
   begining = {"north": north1, "west": west1, "east": east1, "south": south1, "look": look1, "help": help1}
-  if Begining in begining.keys():
-    begining[Begining]()
-  else:
-    tavern_floor()
+  def check():
+    if str(Begining.get()) in begining.keys():
+      begining[str(Begining.get())]()
+    else:
+      tavern_floor()
+  btn1 = Button(tk, text="Action", command=check)
+  btn1.pack()
+
   
   
 
 def help1():
-  print("""
+  hep = Label(tk, text = """
 
   To move, type “north” to go in the northern direction "south” to go in the southern direction,
   “east” to go east, and “west” to go west.
@@ -45,6 +55,7 @@ def help1():
   "Look" will give you a description of the area. "Pick up" will put an object into your inventory, which has a limited capacity. 
 
   """)
+  hep.pack()
   tavern_floor()
 
 
@@ -130,6 +141,7 @@ def next_story():
 
 
 questcounter = 0
+
 
 begining_story()
 
