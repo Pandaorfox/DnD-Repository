@@ -1,19 +1,40 @@
 from Coding1 import Forest
 from tkinter import *
-tk = Tk()
+import tkinter as tk
+from tkinter import ttk
 
-tk.geometry('1000x1050')
+root = tk.Tk()
+container = ttk.Frame(root)
+canvas = tk.Canvas(container)
+scrollbar = ttk.Scrollbar(container, orient="vertical", command=canvas.yview)
+scrollable_frame = ttk.Frame(canvas)
+
+
+scrollable_frame.bind(
+    "<Configure>",
+    lambda e: canvas.configure(
+        scrollregion=canvas.bbox("all"), 
+        width = 900, height = 1000
+    )
+)
+
+canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+
+canvas.configure(yscrollcommand=scrollbar.set)
+
+
+root.geometry('1000x1000')
 
 
 def begining_story():
-  L1 = Label(tk, text="Welcome adventurer, what is your name? Enter your Name:")
+  L1 = Label(scrollable_frame, text="Welcome adventurer, what is your name? Enter your Name:")
   L1.pack()
-  name = Entry(tk,width=10)
+  name = Entry(scrollable_frame,width=10)
   name.pack()
   def clicked1():
-    res = Label(tk, text="Hello " + name.get() + ". Welcome to a world full of wonders, such as wizardry, combat, and treasure.")
+    res = Label(scrollable_frame, text="Hello " + name.get() + ". Welcome to a world full of wonders, such as wizardry, combat, and treasure.")
     res.pack()
-    basics = Label(tk, text="""To move, type “n” or “north” to go in the northern direction "s” to go in the southern direction, “e” to go east, and “w” to go west.
+    basics = Label(scrollable_frame, text="""To move, type “n” or “north” to go in the northern direction "s” to go in the southern direction, “e” to go east, and “w” to go west.
                                      You can also go up or down, if the situation suits those commands. 
                                      "Look" will give you a description of the area.  
                                      Type "help" to find a list of commands and actions.
@@ -24,15 +45,15 @@ You awake in a medieval tavern. The fireplace crackles in the background, and th
                                      """)
     basics.pack()
     tavern_floor()
-  btn = Button(tk, text="Save", command=clicked1)
+  btn = Button(scrollable_frame, text="Save", command=clicked1)
   btn.pack()
 
   
 def tavern_floor():
-  tavern = Label(tk, text="""You stand in the tavern.
+  tavern = Label(scrollable_frame, text="""You stand in the tavern.
                  What would you like to do. Type help if you have no clue whats going on.""")
   tavern.pack()
-  Begining = Entry(tk,width=10)
+  Begining = Entry(scrollable_frame,width=10)
   Begining.pack()
   begining = {"north": north1, "west": west1, "east": east1, "south": south1, "look": look1, "help": help1}
   def check():
@@ -40,14 +61,14 @@ def tavern_floor():
       begining[str(Begining.get())]()
     else:
       tavern_floor()
-  btn1 = Button(tk, text="Action", command=check)
+  btn1 = Button(scrollable_frame, text="Action", command=check)
   btn1.pack()
 
   
   
 
 def help1():
-  hep = Label(tk, text = """
+  hep = Label(scrollable_frame, text = """
 
   To move, type “north” to go in the northern direction "south” to go in the southern direction,
   “east” to go east, and “west” to go west.
@@ -145,5 +166,8 @@ questcounter = 0
 
 begining_story()
 
+container.pack()
+canvas.pack(side="left", fill="both", expand=True)
+scrollbar.pack(side="right", fill="y")
 
-tk.mainloop()
+root.mainloop()
