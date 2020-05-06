@@ -14,7 +14,7 @@ scrollable_frame.bind(
     "<Configure>",
     lambda e: canvas.configure(
         scrollregion=canvas.bbox("all"), 
-        width = 900, height = 1000
+        width = 900, height = 900
     )
 )
 
@@ -81,80 +81,104 @@ def help1():
 
 
 def look1():
-  print("""
+  look = Label(scrollable_frame, text = """
 
   To your west is a young girl crying in the corner 
     A door is to your east, and the is a bar to your north with a bartender behind it
   A lastly a fireplace crackles to the south.
      """)
+  look.pack()
   tavern_floor()
 
   
 def north1():
-  print("Good evening to you weary adventurer, here’s to a quiet night after a long day, eh? What’ll it be?")
-  first_question = input("""Honey Mead - 1gp
-  Stiffler Amber Ale - 2gp
-  Bubbling Cider - 4gp
-  Wine - 8gp
-  Flee:
-  """).lower()
-  if first_question == "honey mead":
-    print("You have no money sorry.")
-    north1()
-  elif first_question == "stiffler amber ale":
-    print("You have no money sorry.")
-    north1()
-  elif first_question == "bubbling cider":
-    print("You have no money sorry.")
-    north1()
-  elif first_question == "wine":
-    print("You have no money sorry.")
-    north1()
-  elif first_question == "flee":
-    tavern_floor()
-  else:
-    print("You dwarf, speak clearly.")
-    north1()
+  bartender = Label(scrollable_frame, text = """Good evening to you weary adventurer, here’s to a quiet night after a long day, eh? What’ll it be?
+                                          Honey Mead - 1gp
+                                          Stiffler Amber Ale - 2gp
+                                          Bubbling Cider - 4gp
+                                          Wine - 8gp
+                                          Flee: """)
+  bartender.pack()
+  first_question = Entry(scrollable_frame,width=10)
+  first_question.pack()
+  def clicked2():
+    if first_question.get().lower() == "honey mead":
+      money = Label(scrollable_frame, text = "You have no money sorry.")
+      money.pack()
+      north1()
+    elif first_question.get().lower() == "stiffler amber ale":
+      money1 = Label(scrollable_frame, text = "You have no money sorry.")
+      money1.pack()
+      north1()
+    elif first_question.get().lower == "bubbling cider":
+      money2 = Label(scrollable_frame, text = "You have no money sorry.")
+      money2.pack()
+      north1()
+    elif first_question.get().lower() == "wine":
+      money3 = Label(scrollable_frame, text = "You have no money sorry.")
+      money3.pack()
+      north1()
+    elif first_question.get().lower == "flee":
+      tavern_floor()
+    else:
+      dwarf = Label(scrollable_frame, text = "You dwarf, speak clearly.")
+      north1()
+      
+  btn = Button(scrollable_frame, text="Ask", command=clicked2)
+  btn.pack()
+  
 
       
 def west1():
   global questcounter
-  print("A young girl asks 'Are you here to help me?'")
-  girl_question = input("yes/no: ").lower()
-  if girl_question == "yes":
-    print("Thank Dragon lord somebody is here to help! I have lost my magical box, help me find it.")
-    if questcounter == 0:
-      questcounter += 1
-      print('Thank you for accepting my quest')
+  girl = Label(scrollable_frame, text = """A young girl asks 'Are you here to help me?'
+                                           yes/no: """)
+  girl_question = Entry(scrollable_frame,width=10)
+  girl_question.pack()
+  btn = Button(scrollable_frame, text="Check", command=clicked3)
+  btn.pack()
+  def clicked3():
+    if girl_question.get().lower() == "yes":
+      thank = Label(scrollable_frame, text = "Thank the Dragon lord somebody is here to help! I have lost my magical box, help me find it.")
+      thank.pack()
+      if questcounter == 0:
+        questcounter += 1
+        thank_you = Label(scrollable_frame, text = 'Thank you for accepting my quest')
+        thank_you.pack()
+        tavern_floor()
+      else:
+        wait = Label(scrollable_frame, text = "Wait you here before?")
+        wait.pack()
+        tavern_floor()
+    elif girl_question.get().lower() == "no":
       tavern_floor()
     else:
-      print("Wait you here before?")
       tavern_floor()
-  elif girl_question == "no":
-    tavern_floor()
-  else:
-    tavern_floor()
 
     
 def east1():
   if questcounter == 1:
-      print("To the east is a door, wich you walk through")
+      door = LAbel(scrollable_frame, text = "To the east is a door, wich you walk through")
+      door.pack()
       next_story()
   else:
-      print("You see a door but youre not strong enough yet please come back later.")
+      door2 = Label(scrollable_frame, text = "You see a door but youre not strong enough yet please come back later.")
+      door2.pack()
       tavern_floor()
 
       
 def south1():
-    print("A fireplace roars in front of you. You reach out to touch it and get burned.")
+    fireplace = Label(scrollable_frame, text = "A fireplace roars in front of you. You reach out to touch it and get burned.")
+    fireplace.pack()
     tavern_floor()
 
 
 
 def next_story():
-    print("""You step outside
+    outside = Label(scrollable_frame, text = """You step outside
 
           """)
+    outside.pack()
     Forest()
 
 
