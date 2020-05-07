@@ -31,6 +31,8 @@ root.geometry('1000x1000')
 def Forest():
   
   farmkey = 0
+  lockpick = 0
+  shadowwalk = 0
 
   def first_story():
     around = Label(scrollable_frame, text = """You are in the midst of a uniquely unremarkable city afront rows of monotonously lifeless and dilapidated wood buildings mirrored across 
@@ -74,7 +76,7 @@ def Forest():
     look2 = Label(scrollable_frame, text = """
 
   To your west is rickety bridge. 
-      A wise looking tree is to your east, and to your north is a farmhouse that looks like its falling apart. There is a lake to the south.
+      A wise looking tree is to your east, and to your north is a farmhouse that looks like its falling apart. There is a town to the south.
 
        """)
     look2.pack()
@@ -118,55 +120,72 @@ def Forest():
                         -Flee
                         -Sneak
                           """)
+    farmhouse.pack()
     farm = Entry(scrollable_frame, width = 10)
+    farm.pack()
     def farm_action():
-    if farm == "lockpick":
-      print("""You attemt to pick the lock with a wire you find on the ground. 
-      The wire breaks the moment you put it into the lock. Feeling frustration you attack it with a wooden plank. 
-      It also breaks.""")
-      farmhouse()
-    elif farm == "key":
-      if farm_key == 1:
-        print("The key unlocks he lock and you step inside.")
-        farm_end()
+      if farm.get().lower() == "lockpick":
+        Lockpick = Label(scrollable_frame, text = """You attemt to pick the lock with a wire you find on the ground. 
+        The wire breaks the moment you put it into the lock. Feeling frustration you attack it with a wooden plank. 
+        It also breaks.""")
+        Lockpick.pack()
+        farmhouse()
+      elif farm.get().lower() == "key":
+        if farm_key == 1:
+          key1 = Label(scrollable_frame, text = "The key unlocks the lock and you step inside.")
+          key1.pack()
+          farm_end()
+        else:
+          key2 = Label(scrollable_frame, text ="You dont have a key dumb dumb")
+          key2.pack()
+          farmhouse()
+      elif farm.get().lower() == "shadowwalk":
+        crack = Label(scrollable_frame, text ="""You try to go through a crack you see in the wall. 
+        Suddenly you hit a wall that wasnt there before and get knocked back. It happens every time you do this.""")
+        crack.pack()
       else:
-        print("You dont have a key dumb dumb")
-      farmhouse()
-    elif farm == "sneak":
-      print("""You try to go through a crack you see in the wall. 
-      Suddenly you hit a wall that wasnt there before and get knocked back. It happens every time you do this.""")
-    else:
-      forest_floor()
-
+        forest_floor()
+    farm_btn = Button(scrollable_frame, text="Action", command=farm_action)
+    farm_btn.pack()
 
   def west2():
-    global farmkey
+    global farm_key
   
-    print("""As you walk along the leaf-strewn path, you notice that the woods become more dense. 
+    raven = Label(scrollable_frame, text = """As you walk along the leaf-strewn path, you notice that the woods become more dense. 
     The light of day is less visible as the trees grow larger and crowd together, their wide branches intertwining.
-    Birds also seem to be less common here, except for the occasional caw of a crow or raven.""")
-    print("You continue torward the direction of the bridge and you notice a smell.")
-    print("""A TROLL has come across your path!!! It looks at you with its beady, almost beetle like eyes as sap drips from its mouth. 
-    It throws a large axe in your direction, LOOK OUT!""")
-    troll = input("""What would you like to do?
-                    -Dodge
-                    -Catch
-                    -Flee
-                    """).lower()
-    if troll == "dodge":
-      print("""You dodge the axe and it hit a rock sending it flying in the air. 
-      When you look up the troll is dead with his own axe sticking up from his head.
-      You search his body and kind a key. You try to cross the bridge but it colapses under you forcing you to retreat.""")
-      farmkey += 1
-      forest_floor()
-    elif troll == "catch":
-      print("""For some reason you decided to catch a hundred pound axe.
-      Needles to say you lost your arm, but an angel came down and said "I will regrow your arm but you will have to start over" """)
-      forest_floor()
-    else: 
-      print("You run away with your life")
-      forest_floor()
-    
+    Birds also seem to be less common here, except for the occasional caw of a crow or raven.
+
+      You continue torward the direction of the bridge and you notice a smell.")
+
+        A TROLL has come across your path!!! It looks at you with its beady, almost beetle like eyes as sap drips from its mouth.
+      
+      It throws a large axe in your direction, LOOK OUT!
+
+      What would you like to do?
+                  -Dodge
+                  -Catch
+                  -Flee
+                  """)
+    raven.pack()
+    troll = Entry(scrollable_frame, width = 10)
+    troll.pack()
+
+    def trol_action():               
+      if troll.get().lower() == "dodge":
+        print("""You dodge the axe and it hit a rock sending it flying in the air. 
+        When you look up the troll is dead with his own axe sticking up from his head.
+        You search his body and kind a key. You try to cross the bridge but it colapses under you forcing you to retreat.""")
+        farmkey += 1
+        forest_floor()
+      elif troll.get().lower() == "catch":
+        print("""For some reason you decided to catch a hundred pound axe.
+        Needles to say you lost your arm, but an angel came down and said "I will regrow your arm but you will have to start over" """)
+        forest_floor()
+      else: 
+        print("You run away with your life")
+        forest_floor()
+    troll_btn = Button(scrollable_frame, text="Action", command=troll_action)
+    troll_btn.pack()
 
 
 
@@ -190,8 +209,7 @@ def Forest():
 
       
   def south2():
-      print("""You walk torward the lake but get stoped by some gaurds.
-             Gaurd: Halt do you have the shield? """)
+      print("""You walk to the town """)
       if shield == 1:
         print("Gaurd: Ah okay you may go then.")
       
