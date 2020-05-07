@@ -1,74 +1,125 @@
+from tkinter import *
+import tkinter as tk
+from tkinter import ttk
+
+root = tk.Tk()
+container = ttk.Frame(root)
+canvas = tk.Canvas(container)
+scrollbar = ttk.Scrollbar(container, orient="vertical", command=canvas.yview)
+scrollable_frame = ttk.Frame(canvas)
+
+
+scrollable_frame.bind(
+    "<Configure>",
+    lambda e: canvas.configure(
+        scrollregion=canvas.bbox("all"), 
+        width = 900, height = 900
+    )
+)
+
+canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+
+canvas.configure(yscrollcommand=scrollbar.set)
+
+
+root.geometry('1000x1000')
+
+
+ 
+
+
 def Forest():
+  
   farmkey = 0
 
   def first_story():
-    print("""You are in the midst of a uniquely unremarkable city afront rows of monotonously lifeless and dilapidated wood buildings mirrored across 
+    around = Label(scrollable_frame, text = """You are in the midst of a uniquely unremarkable city afront rows of monotonously lifeless and dilapidated wood buildings mirrored across 
   the opposite side of an appropriately dull beaten dirt path.
   It seems the term lifeless not only fits the description of the tired architecture as you have yet to see even a rat scurry along the road. 
   The only thing that stands out amongst the infinite span of the somber town is the dense and towering wall of forestry up ahead. 
   I suppose something is better than nothing you tell yourself. 
-  However, even at a distance, you can pick up the palpable feeling of a most vile evil befalling the forest.""")
-    First = input("What would you like to do. Type help if you have no clue whats going on.").lower()  
-    first = {"north": north2, "west": west2, "east": east2, "south": south2, "look": look2, "help": help2}
-    first[First]()
+  However, even at a distance, you can pick up the palpable feeling of a most vile evil befalling the forest.
+
+   """)
+    around.pack()
+    forest_floor()
+
 
   def forest_floor():
-    print("You stand in a forest")
-    First = input("What would you like to do. Type help if you have no clue whats going on.").lower()  
-    first = {"north": north2, "west": west2, "east": east2, "south": south2, "look": look2, "help": help2}
-    first[First]()
+    stand = Label(scrollable_frame, text = """You stand in a forest
+          What would you like to do. Type help if you have no clue whats going on.""")
+    stand.pack()
+    First = Entry(scrollable_frame, width = 10)
+    First.pack()
+    def check1():
+      first = {"north": north2, "west": west2, "east": east2, "south": south2, "look": look2, "help": help2}
+      first[First]()
+    btn_first = Button(scrollable_frame, text="Save", command=check1)
+    btn_first.pack()
   
   
 
   def help2():
-    print("""
+    help2 = Label(scrollable_frame, text = """
 
   To move, type “n” or “north” to go in the northern direction "s” to go in the southern direction, “e” to go east, and “w” to go west.
     You can also go up or down, if the situation suits those commands. 
     "Look" will give you a description of the area. "Pick up" will put an object into your inventory, which has a limited capacity. 
     Type "help" to find a list of commands and actions.""")
+    halp2.pack()
     tavern_floor()
 
 
   def look2():
-    print("""
+    look2 = Label(scrollable_frame, text = """
 
   To your west is rickety bridge. 
       A wise looking tree is to your east, and to your north is a farmhouse that looks like its falling apart. There is a lake to the south.
 
        """)
+    look2.pack()
     forest_floor()
 
   
   def north2():
-    print("You walk torward the farmhouse, but run into a group of forest nymphs.")
-    print("You quickly count how many there are, but get to tired and stop halfway. All you know is that there is a lot.")
-    print("They start running at you and shriking madly.")
-    nymph = input("""What would you like to do?
-    -Attack
-    -Seduce
-    -Run
-    """).lower()
-    if nymph == "attack":
-      print("""You charge at them hoping to get a lucky punch. The one in the lead pushes you over and you get trampled on. 
-      Before your mind went unconcious you could see them all looking at you hungrily.""")
-      forest_floor()
-    elif nymph == "seduce":
-        print("You wake up the next morning ready to get on with your day.")
-        farmhouse()
-    else:
+    north2 = Label(scrollable_frame, text = """You walk torward the farmhouse, but run into a group of forest nymphs.
+    You quickly count how many there are, but get to tired and stop halfway. All you know is that there is a lot.
+    They start running at you and shriking madly.
+    What would you like to do?
+      -Attack
+      -Seduce
+      -Run
+      """)
+    north2.pack()
+    nymph = Entry(scrollable_frame, width = 10)
+    nymph.pack()
+    def nymph_action():
+      if nymph.get().lower() == "attack":
+        attack = Label(scrollable_frame, text = """You charge at them hoping to get a lucky punch. The one in the lead pushes you over and you get trampled on.
+        Before your mind went unconcious you could see them all looking at you hungrily.""")
+        attack.pack()
         forest_floor()
+      elif nymph.get().lower() == "seduce":
+          morning = Label(scrollable_frame, text = "You wake up the next morning ready to get on with your day.")
+          morning.pack()
+          farmhouse()
+      else:
+          forest_floor()
+    nymph_btn = Button(scrollable_frame, text="Action", command=clicked1)
+    nymph_btn.pack()
       
   def farmhouse():
-    print("""Before you is an old farmhouse. It appears empty and abandoned.
+    farmhouse = Label(scrollable_frame, text ="""Before you is an old farmhouse. It appears empty and abandoned.
             This old and rusty shed is surrounded by old hay, and the rotting dead carcases of farm animals. 
-            There is a large door waiting to be opened, but is locked tight by a large iron bolt.""")
-    farm = input("""What would you like to do?
-                -Key
-                -Lockpick
-                -Flee
-                -Sneak
-                """).lower()
+            There is a large door waiting to be opened, but is locked tight by a large iron bolt.
+                    What would you like to do?
+                        -Key
+                        -Lockpick
+                        -Flee
+                        -Sneak
+                          """)
+    farm = Entry(scrollable_frame, width = 10)
+    def farm_action():
     if farm == "lockpick":
       print("""You attemt to pick the lock with a wire you find on the ground. 
       The wire breaks the moment you put it into the lock. Feeling frustration you attack it with a wooden plank. 
@@ -151,3 +202,8 @@ def Forest():
 
   first_story()
 
+container.pack()
+canvas.pack(side="left", fill="both", expand=True)
+scrollbar.pack(side="right", fill="y")
+
+root.mainloop()
