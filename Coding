@@ -1,7 +1,8 @@
-from Coding1 import Forest
+
 from tkinter import *
 import tkinter as tk
 from tkinter import ttk
+
 
 root = tk.Tk()
 container = ttk.Frame(root)
@@ -25,6 +26,7 @@ canvas.configure(yscrollcommand=scrollbar.set)
 
 root.geometry('1000x1000')
 
+root.title("Halloween special")
 
 def begining_story():
   L1 = Label(scrollable_frame, text="Welcome adventurer, what is your name? Enter your Name:")
@@ -130,31 +132,22 @@ def north1():
 
       
 def west1():
-  global questcounter
   girl = Label(scrollable_frame, text = """A young girl asks 'Are you here to help me?'
-                                           yes/no: """)
+                                        yes/no: """)
+  girl.pack()
   girl_question = Entry(scrollable_frame,width=10)
   girl_question.pack()
-  btn = Button(scrollable_frame, text="Check", command=clicked3)
-  btn.pack()
   def clicked3():
     if girl_question.get().lower() == "yes":
       thank = Label(scrollable_frame, text = "Thank the Dragon lord somebody is here to help! I have lost my magical box, help me find it.")
       thank.pack()
-      if questcounter == 0:
-        questcounter += 1
-        thank_you = Label(scrollable_frame, text = 'Thank you for accepting my quest')
-        thank_you.pack()
-        tavern_floor()
-      else:
-        wait = Label(scrollable_frame, text = "Wait you here before?")
-        wait.pack()
-        tavern_floor()
+      tavern_floor()
     elif girl_question.get().lower() == "no":
       tavern_floor()
     else:
       tavern_floor()
-
+  btn = Button(scrollable_frame, text="Check", command=clicked3)
+  btn.pack()
     
 def east1():
   if questcounter == 1:
@@ -185,7 +178,7 @@ def next_story():
 
 
 
-questcounter = 0
+
 
 
 begining_story()
