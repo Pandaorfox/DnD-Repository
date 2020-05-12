@@ -1,1 +1,540 @@
-#Basic Commands the story line calls, such as map, fighting, and other things
+Script: 
+
+[You awake inside the Willsdrey village tavern. The fire crackles in the background, emanating a fuzzy orange light. The air is warm and smells of Ale and mead. To move, type “n” or “north” to go in the northern direction “s” to go in the southern direction, “e” to go east, and “w” to go west. You can also go up or down, if the situation suits those commands. “Look” will give you a description of the area. “Pick up” will put an object into your inventory, which has a limited capacity. Type “help” to find a list of commands and actions.]
+
+[You awake in a medieval tavern. The fireplace crackles in the background, and the air smells of Ale and meat. Your head hurts badly and your vision is blurred.]
+
+(look)
+[to your west is a young girl crying in the corner] 
+[the door is to your east, and the is a bar to your north with a bartender behind it]
+[[ type “a” for action command, and “goto” followed by place to go there]]
+
+
+(a)
+ Are you here to help me? 
+(y/n)
+(n)=end
+(y)
+Thank god somebody is here to help! I have lost my magical box, can you help me find it? 
+(y) 
+[Quest Accepted]
+(WHEN BOX RETURNS)
+(goto girl)
+
+I have your box
+[Ok thanks lol;]
+No, I don't think you can have it. 
+[little girl cries]
+
+THE END. 
+
+(Bartender):
+(a)
+[Good evening to you weary adventurer, here’s to a quiet night after a long day, eh? What’ll it be?:]
+Honey Mead - 1gp
+[The bartender sinks beneath the Oak plank bar table. While he’s doing this, you notice how weathered and worn the table is after years of abuse from unruly patrons. Before you can stare for too long, the barman catches your eyes again, only this time holding a plain but a delicious-looking glass of mead in his hands.]
+Stiffler Amber Ale - 2gp
+[The bartender calls over to a passing barmaid with rows of heavy pint glasses full of radiant golden Ale. It's such an entrancing sight to behold you almost don't notice the barman zipping up his pants.]
+Bubbling Cider - 4gp
+[You rack your brain thinking about what devilish incantations were involved in concocting this bubbling beverage. Nevertheless, down the hatch.]
+Wine - 8gp
+[Here’s your wine, you snob.]
+Additional Actions:
+Attack(May Incite Hostile Response)
+Flee Engagement
+Talk
+
+(Regardless of Choice):
+[It looks like you couldn’t handle your liquor. Before you can move a muscle, you begin to feel your consciousness slipping away and the musty Tavern floor beckoning you into it’s comforting arms as you fall off the barstool.]
+
+
+The Next Morning:
+[You open your eyes to a familiar sight, the Creaky Tankard Tavern. From where you awoke you are staring directly upwards at the lanterns hung on the ceiling and the underbelly of the ba table, oh, you’re on the floor. Fortunately for you, the bar keepers must have been too exhausted to drag you out onto the streets.]
+Actions:
+[Leave the tavern]
+[Look Around]
+
+(Look Around):
+[You struggle to regain your mental faculties in order to look around but strangely enough you don’t have to look too hard. Right beside you is a broken bottle of rum.]
+Actions:
+[Take Bottle]
+[Hair of the Dog that bit You]
+[Leave] 
+
+(Take Bottle):
+[It’s not much, however, perhaps it could prove useful as a makeshift shank in the event of a fight.]
+
+(Hair of the Dog that bit you):
+[There’s more than one reason you don’t want to be seen sipping the leftover grog from this bottle. As soon as you’re finished you make haste out the door.]
+
+
+(Leave):
+[In hopes of avoiding any fees incurred from your extended stay, you quickly will yourself through the excruciating pain of getting to your feet and haphazardly throw yourself out onto the streets.]
+
+The Town of Willsdrey:
+[The town you find now envelopes you is bustling with life in every corner from the throngs of rushing townsfolk to the grotto rats scouring the gutters for their next meal; this town is brimming with life and culture out of every pore. The roads precipitate endlessly beyond the periphery of your vision, however, in your drunken stupor you would rather only familiarize yourself with your immediate surroundings. Betwixt the deluge of horse-pulled carts clogging the dirt path, you spot a few notable storefronts.]
+Actions:
+[The Creaky Tankard Tavern]
+[Koragon’s Potion Emporium]
+[Godot’s Armor and Weapon Forge]
+[unnamed]
+[Additional Action: Investigate Further]
+
+
+(Investigate(DC 13):
+Success:
+[Though it’s difficult to make anything out through the commotion, in the stillness of the vacant sky you catch a glimpse of a towering forest peeking out above the skyline. Even at this distance, you can feel the sinister gaze cast by the Arboreal Monoliths. Though somehow, at the same time, something about them you can’t quite describe invites you into their depths. Before you can gawk any longer your trance is interrupted by the guttural screams of two men brawling on the ground just beside you. You notice that they appear to be vying over a medium sized sack wrapped in twine.] 
+Failure:
+[Unfortunately, you are still far too discombobulated to focus your attention on anything for long enough to discern anything new.]
+Actions:
+[Go To: The Creaky Tankard Tavern]
+[Go To: Koragon’s Potion Emporium]
+[Go To: Drotun’s Armor and Weapon Forge]
+[Go To: unnamed]
+[(Upon Successful Investigation)Third Party the Unsuspecting Brawlers]
+
+(Third Party) ENCOUNTER:
+[Attack the Man on the Left]
+[Attack Man on the Right]
+[Go For the Bag]
+
+(Attack Man on the Left):
+[Since the man is already preoccupied you get the first attack action. The man on the right seems happy to have the aid.]
+PC ATTACK ACTION:
+Use Broken Rum Bottle: 
+Bottle Weapon Stats:
+
+Durability:
+DPR:
+15
+2-5
+
+Use Fists:
+Hand To Hand Weapon Stats:
+
+Durability
+DPR:
+∞
+3
+
+(Attack Man on the Right):
+[Since the man is already preoccupied you get the first attack action. The man on the Left seems happy to have the aid.]
+PC ATTACK ACTION:
+Use Broken Rum Bottle: 
+Bottle Weapon Stats:
+
+Durability:
+DPR:
+15
+2-5
+
+Use Fists:
+Hand To Hand Weapon Stats:
+
+Durability
+DPR:
+∞
+3
+
+(Go for the Bag(DC 12)):
+Success:
+[With the speed and dexterity of a circus monkey you lunge forward between the two brawlers and manage to grab the sack and disappear into the surrounding crowd.]
+Failure:
+[Oops, as lunge forward to grab the bag, you trip over a rut in the path and fall right between the two brawlers. You find yourself clutching the sack, only now you are the object of their Gladiatorial Fury. Good Luck]
+[The Brawlers make the First Attack move]
+PC ATTACK ACTION: 
+Use Broken Rum Bottle: 
+Bottle Weapon Stats:
+
+Durability:
+DPR:
+15
+2-5
+
+Use Fists:
+Hand To Hand Weapon Stats:
+
+Durability
+DPR:
+∞
+3
+
+
+
+Encounter Loot:
+Sack of Gold Pieces:
+50Gp
+Fishing hook
+
+
+
+(The Creaky Tankard Tavern):
+[Unfortunately, upon attempting to open the front doors, you find they are now locked]
+
+(Godot’s Weapon and Armor Forge):
+[“Those blades in there… they weren’t just your typical ornate and fragile toothpicks crafted for nobles. They could bring down Giants!” You hear a passerby exclaim as he exited the immense Cobblestone fortress where, presumably, Gotod conducted his blacksmith duties. It had no doubt stood on this land far longer than any other building in the area, feudal in contrast to the buildings surrounding it and clearly embattled by time and weather yet no less the impregnable castle it had always been; the cracks in its walls displayed flagrantly like the scars of a proud veteran warrior.]
+
+Actions:
+[Proceed]
+[Leave]
+
+(Leave):
+[Redo Willsdrey Village Scene]
+
+(Proceed):
+[Opening the doors to the building sends a gust of wind into the building, rustling the leaves at your feet and sending horripilations repelling down your spine. After closing the door behind you you are presented with a spiral staircase with no railing that winds down into the bowels of the fortress. As you descend deeper you soon begin to hear a sharp clanking sound echoing through the chamber, almost mistakable for your footsteps at first but soon becoming the deafening and distinct sound of a hammer striking an anvil. Soon enough, your intuition is realized, upon reaching the bottommost step you are greeted to the source of the sound.]
+
+[“Well, a newcomer I see. I am Gotod, I serve this town as the humble smith forging new weapons. What is it are you searching for traveler?”]
+
+Dialogue Actions:
+ [I’m on a quest, a quest in search of a magical box.]
+[Same as everyone else that walks through these doors, armaments.]
+[silence]
+
+(1).
+[“A toilsome Journey, I wager. You’ll require good arms. Let me smith y’ weapons. I am a smith. Such is my purpose.”] 
+(2).
+[“A simple man with simple needs I see. Fine.”]
+(3).
+[“...”]
+
+Actions:
+[Browse Stock]
+[Further Dialogue]
+[Leave]
+
+(1).
+[Iron Helmet:25gp:Stats+5hp]
+[Iron ChestPlate:50gp:Stats+10hp]
+[Iron Leggings:40gp:Stats+8hp]
+[Iron Boots & Gauntlets:30gp:Stats+6hp]
+[Steel Alloy Claymore:40gp:Stats+100Durability:5-10dpr]
+(2).
+
+
+
+
+
+Stream: 
+[There is a stream gurgling from the woods, flowing down a cliff into a lake below]
+(goto lake)
+[You follow the stream down to the lakeshore, where the glassy grey water perfectly reflects the sky above. One bank extends to the east and another extends to the west]
+(if Spectacles)
+[A red path of light shines into the forest]
+(east)
+[The shore extends until it reaches its end at the base of a large cliff. Leaning onto the large upward extending wall is a shovel, and drawn next to it is an arrow pointing down into the sand]
+(dig) 
+[You pick up the shovel and start to dig. You keep digging, and digging, until you hit a sharp THUD. You have found a chest full of treasure!!! +100 gp, + Sacred dagger + Healing potion]  
+*After treasure has been found*
+[The shore extends until it reaches its end at the base of a large cliff. Leaning onto the large upward extending wall is a shovel, and below it is a hole dug with an empty Treasure chest. On the shore is a magic boat.]
+(if Spectacles)
+[There is a trail of red light leading into the town]
+(in boat)
+[The boat floats quietly across the grey lake, with water trickling behind it. Through the fog, You see the warm light of a lantern hanging by the door to a little wooden shack. The boat lands, and you hear a cackling laugh from the inside.]
+(in Hut)  
+[ Inside the hut there is an abominable Witch! She is about to turn your sorry arse into a toad when she eyes your backpack’s money inventory]
+[“I will not turn you into a toad dear passenger, ONLY IF you purchase some of these goods from me!] 
+Witch inventory: 
+Healing potion (10gp)
+Magic Wand (20gp)
+Mushrooms (+1hp) (1gp) 
+Gem of the Dead (50gp)
+Fishing hook 
+
+(if healing potion)
+[“Wise choice!”]
+(if Magic Wand)
+[“The magic word is ZAP”]
+(if Mushrooms)
+[“Homegrown by your truly”]
+(if Gem of the Dead)
+[“This will protect you from the dead as long as you wear it, but be careful - it's fragile!”] 
+
+(out)
+[The boat takes you back to the shore]
+
+   
+(west)
+[Down the shore it looks like there is an old man sitting peacefully on a rock in the foggy mist. As you approach him you hear him happily humming.] 
+(if Spectacles)
+[There is a trail of red light leading into the town]
+Wizard Encounter:
+[Oh! And how are YOU young man? I knew you would be showing up sometime.”]
+Fine. You?
+[ Well funny you should ask, because I just came down here to do some peaceful fishing, but alas forgot my fishing hook… Say, will you help me give my old bones a rest and go find it for me?
+Sure.
+[“Thank you young man, I will ensure you are returning to a worthy prize!!!”]
+[+Hook Quest]
+What's in it for me?
+[“Well, for as long as I have been around, I have collected a few rare things. I’m sure I could find a little present to exchange.”]
+[+Hook Quest]
+Shut up old man.
+[The “old man” looks at you with fury in his eyes. He lifts his frail hands and points his boney fingers at you. ALAKAZAM!!!! You explode into a pile of blood and guts.
+[you died]
+How did you know I would be coming? 
+[OoooH I know very much about this land here. I have been here a long time you know. For example, there is a fight going on inside the secret alleyway RIGHT NOW! But don’t tell anyone else I told you… Wouldn't want to accept that sort of responsibility. But this old wizar- I - I - I - mean, MAN, must be getting back to fishing… If only I have a hook…”] 
+{SET EVENT: Bar Brawl}
+I’ll find your hook!
+[“Why thank you young man! If you should return, I will have the object you seek to fulfill your quest!”]
+[+Hook Quest]   
+
+Yeah right.
+[“Herumpf!”]
+(If have hook)
+[A voice cries out from the distance]
+[“It is YOU who chose to help ME, and have shown that you are worthy of my help!”]
+[You see the old man hovering above the lake. He snaps his fingers, and a pair of red spectacles appear on the beach before you. He then jets up into the sky, never to be seen again]
+(get Magic Spectacles)   
+(wear Magic spectacles) 
+[As you put on the Magic Spectacles, you see a trail of red light shining like a path up the cliff and into the town.] 
+
+              
+
+Graveyard:
+[At the end of town there is a shadowy figure who stands among the tombstones and mist in the graveyard. He looks dangerous]
+(goto man)
+Graveyard man encounter (Bichler):
+[“who are you and WHAT DO YOU WANT!’]
+I seek a magic box
+[“The box you seek was taken from a little girl yes?!”]
+(yes) 
+[“Then it be long gone! Taken to the depths of the UNDERWORLD!”]
+{unlocks dialog option C}
+(no)
+[“Well Good riddance then!”
+I am (name) and who are you? 
+[“I am Bichler, and I watch over the grave yard to prevent any lost souls from entering… or leaving. You best be leaving, or else I might have to slice you to bits!”]   
+How do I get to the underworld?
+[“If you travel east into the woods, you will find a well that leads you there. However, I have heard from other non magic users that they cannot see the well all without using some sort of mystical equipment. Good luck, and may we not meet in the next world…”]  
+
+
+
+Woods:
+(Goto woods) 
+[You stand before a large thicket, with a gaping hole leading into the dark woods...]
+(in) 
+(if Spectacles)
+[A red path of light shines to the east]
+
+Woods: 
+# no matter which direction you type, you will go a random direction thats not south 
+# this goes on for three turns 
+
+[To your surprise, the forest is sprawling with life. Birds seem to chirp from every branch as squirrel's scramble up and down trunks and the occasional butterfly flutters by.]
+(If spectacles)  [There is a red light shining to the east]
+
+
+
+(west)
+(trees)
+[As you walk along the leaf-strewn path, you notice that the woods become more dense. The light of day is less visible as the trees grow larger and crowd together, their wide branches intertwining. Birds also seem to be less common here, except for the occasional caw of a crow or raven.]
+(continue)
+(troll encounter)
+
+[A TROLL has come across your path!!! It looks at you with its beady, almost beetle like eyes as sap drips from its mouth. It throws a large axe in your direction, LOOK OUT!] 
+[Options: 
+---Flee
+---Action - dodge
+---Catch (DC 16)
+---
+---(turn back)
+(continue)
+
+(wisdom tree encounter)
+[You stand before a large tree. It looks down on you with its old face, and seems eager to help]  
+ [“what do you seek dear traveler”]
+Who are you? 
+[“I am the tree of wisdom, I understand all that is contained in this forest!”]
+Can you help me?(
+[“Within the trees is the treasure you seek, well,well well, the secrets I keep. Live, die, give up, or try, the way to salvation is through the other side.”]
+	If the player correctly guesses the riddle:
+	If the player is incorrect:
+((Any and all other options lead to the music quote in B)) 
+
+(north) 
+(north trees - 50 percent chance of getting attacked by forest nymphs)
+[OH NO! You have come across the path of (1-5 random chance) Forest nymphs! Despite their beauty, they are angered by your trespassing in their forest! One of them lunges to attack you! (repeat number of times necessary)] 
+( if *seduction* option is succeeded, then the forest nymphs grant your passage, and offer a Health Potion of the Nymphs.)
+(old farm house encounter)
+[Before you is an old farmhouse. It appears empty and abandoned.]
+(goto farmhouse)
+[This old and rusty shed is surrounded by old hay and the rotting carcasses of farm animals. There is a large door waiting to be opened, but is locked tight by a large iron bolt.]
+(potential options to unlock:
+Attack lock (1-100 chance of working)
+Use magic wand (50% chance)
+Use shadow walk (able to purchase in town)
+Pick lock
+(in barn) 
+[Inside the barn is dark and dusty. Over in the corner of the room lies a set of armour and a 
+sword shimmering in a gleaming light ray] 
+(look)
+[In the other corner of the room is a small note on the ground, it says “The well to the Underworld can only be seen with the Glasses of Destiny”]
+ 
+
+
+
+(east)
+[The path ends at a large, grassy field. There’s something off about this clearing, but you can’t quite place it]
+
+(If spectacles) 
+[In the middle of the field is a large demonic well extending down into the earth. It radiates with a dark energy, and glows with a brilliant red light. The sound of chains emerges from the well as a human-sized cage is lifted to the top, almost beckoning you to go in.]
+(goto well)
+[At the mouth of the well is the hellish engravings that say “TO UNDERWORLD” 
+(to underworld) 
+
+
+Underworld:
+(If you have the Gem of the dead in the Underworld, all undead attacks are put off, but it also has a 1/20 chance of breaking every movement. If it breaks, all is normal. )
+
+[Everything here at the bottom of the well is dark. A single, sputtering torch stands beside a large stone door with various horrifying scenes engraved onto it.]
+(open door)
+[As you push against the door the wave of heat nearly knocks you back as the sound of screaming rings in your ears. The Underworld is dimly lit by pools of lava and spouts of flame that lick the ancient stalactites looming above you. A figure in a birdlike mask stands on the left side of the narrow pathway, slowly turning their head to face you as if they had not moved in years. A sickening cracking sound comes from their neck as their head’s rotation completes.]
+(image reference: Ingward (DS1))
+(Interact)
+[“And what might your business here be? It seems you’re a newcomer here, surprisingly enough, considering that the well isn’t visible to the average mortal. Oh, but what are those spectacles? Curious, very curious indeed. Hmm, I am getting off-track. It’s been a long time since someone’s come down the well. What exactly are you doing here, young mortal?”]
+I am looking for a lost magic box.
+[“Hmmmmmm. Ah YES! That is right, I did see a spirit come down here with a funny looking box… Where did he go… I cannot remember. But if you look around long enough, it should turn up!]
+[The bird masked man turns back to his normal position]
+Just minding my own business. 
+[“Well… Carry on.”]
+F*CK YOU!
+[“Well that’s unpleasant… Goodbye!”]
+[Snaps fingers]
+[You Died.]
+(north)
+[You are surrounded by fire, brimstone, and death. Two paths extend outward, one forward, another east.]
+-(north){north hall}
+[skeleton ambush] 
+(avoidable if you have Gem of the Dead) 
+[Skeletons swarm you! 5 jump out and attack you!!!]
+-(east){east hall}
+[you have moved into a torture room. The screams have reached a peak here, though the mortals here don’t seem to recognize your presence, and you feel disoriented from the sheer volume. There is an exit to the north, and one continuing east.] 
+--(north){far north hall}
+You stumble into a dark room, and hear wheezing breathing… A pair of glowing red eyes appear across from you. A DEMON LEAPS OUT. “Prepare to DIE!”]
+Demon Attack: 
+
+--(east){key room}
+[As you turn the corner, two enormous Basilisks slither out at you!!! They seem to be guarding a golden key. WATCH OUT!]
+Basilisk(s) Fight: 
+
+[The basilisks fall in defeat, leaving you alone with the golden key across the room…]
+(get key)  
+[As you grab the key and pocket it, the ground shakes with a terrible rumble. Behind you is a giant floating eyeball monster! You cannot reach it with your sword, only reachable by arrows. It’s eye begins to glow as a beam of light shoots out at you!}
+(Floating eye can only be defeated by a bow and arrow) 
+ 
+
+(south)
+[You are back at the cage extending up to the surface]
+(in)
+[You are back at the well to the Underworld]
+
+(east)
+[You enter a room filled with a gigantic feasting cyclops, sitting on a throne of bones. He seems occupied for now.]
+(Any dialogue will engage the fight)
+Cyclops fight:  
+
+[You vanquish the cyclops, and are surrounded by blood meat and degrees. Something glimmers in a far pile of blood]
+(look) 
+[You have found the Bow of Hell, equipped with an infinite arrow set]  
+
+(west)
+[To the west is a long hall extending down beyond sight, endlessly]
+(you can continue down this hall forever, with each block further amassing another goblin to attack you. To get to the box, you must say the magic word, KAZZOO, and then the floor will open up and you will see the box on an alter}  
+-(west)
+[Further down the hall, you see in the distance a throng of grueling gobins]
+--(west)
+[Three goblins approach you, and begin to attack!]
+---(west)
+[Four goblins approach you, and begin to attack!]
+
+(KAZZOO)
+The floor opens up and you fall down into the depths! A small path with lava on either side leads to an altar with a small golden box atop it. 
+(get Box)
+[The ground starts to shake. The Underworld is not pleased with you taking their prized possession. RUN!]
+(RUN)
+(must type “run” 20 times in under 15 second to escape, or else you die. If you misspell “run”, Then you trip and have to fight a skeleton. Once you are finished fighting the skeleton, the process restarts)
+
+After RUN:
+[You JUMP into the cage to the surface, and ZOOOOM back up to safety! The box in your hands is shining with a radiant light. You think to yourself, What could possibly be inside? Should I open it? The surface approaches and you are back in the field once again”       
+
+IF (open box) 
+[As you peep open the lid, the box FLIES OPEN, releasing a GIANT DRAGON OF DOOM! IT BREATHS ANGLY WITH FIRE AND CHAOS!]
+Dragon Encounter:  
+
+
+
+
+
+
+
+Combat Mechanics:
+
+Chance To Hit Mechanics:
+Chance to hit affected by the following factors:
+Starting Chance to Hit = 0%:Abilities(+70-110%):Enemy Location(-5-30%):CR Rating(-0-20%)
+Location Debuff:
+TBD based on the relative distance away from the PC.
+Challenge Rating Archive:
+D = 0% Hit Debuff
+C = 5% Hit Debuff
+B = 10% Hit Debuff
+A = 15% Hit Debuff
+S = 20% Hit Debuff
+Attack Of Opportunity Granted if PC or Enemy flees Encounter. Essentially, if either party flees, the opposite side will be given the chance to land their attack based on the above-stated factors. If the attacking party lands the attack of opportunity, the opposing party’s flee attempt is failed. Vice Versa, if the attacking party fails the Attack of Opportunity then the opposing party’s flee attempt is successful.  
+Weapon Mechanics:
+Swords:
+Durability = Maximum Damage Output Capacity that is detracted from by an amount equal to the damage dished out during a given attack action.
+DPR(Damage Per Round) For swords, DPR is a single value yielded from a random roll between a given sword's minimum DPR and whatever its maximum DPR value is. To illustrate, A sword may have a maximum DPR value of 10(meaning 10 damage subtracted from enemy health), and yet, its minimum DPR value is 4 meaning that the actual damage output could be anywhere between 4-10 determined by a random roll. Furthermore, after the weapon damage is generated, the attack still needs to land which is determined by the buffs and debuffs listed above.
+Daggers:
+Daggers function identical to swords in how they output with one exception. The damage of a dagger is split up into two uniform random rolls whereas swords only require one roll. This means that generally speaking, a dagger will dish out significantly less damage than its sword counterpart, however, it has to chance to deal more damage in the end as its damage is rolled twice
+
+
+
+
+
+Items List: 
+
+Magical Spectacles:
+[When you are wearing these you can see things beyond our world]
+
+Health Potion of the Nymphs:
+[+7 health]
+[ZAP! -
+
+Magic Wand:
+[Use Magic]
+
+Shadow Walk:
+[Spell to allow you to walk through you a wall]
+
+Lock Pick Kit: 
+[Pick lock ⅓ chance success]  
+
+Suit of Armor: 
+[+10 health]
+
+Sword: 
+[-10 enemy health]
+
+Sacred Dagger:
+[-3 enemy health + unbreakable] 
+[double attack]
+
+Health Potion:
+[+5 health] (costs 5 gp) 
+
+Bow of Hell: 
+[-20 health + unbreakable]
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
