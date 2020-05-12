@@ -1,9 +1,8 @@
-#This is a template that you can use to make the dfferent stages please use it.
-
-#import Next file here
+From Coding1 import Forest
 from tkinter import *
 import tkinter as tk
 from tkinter import ttk
+
 
 root = tk.Tk()
 container = ttk.Frame(root)
@@ -27,204 +26,170 @@ canvas.configure(yscrollcommand=scrollbar.set)
 
 root.geometry('1000x1000')
 
-#Create the over arching function that can be called upon
-def Forest():
-  #Define variables
-  farmkey = 0
-  lockpick = 0
-  shadowwalk = 0
-  def first_story():
-    around = Label(scrollable_frame, text = """You are in the midst of a uniquely unremarkable city afront rows of monotonously lifeless and dilapidated wood buildings mirrored across 
-  the opposite side of an appropriately dull beaten dirt path.
-  It seems the term lifeless not only fits the description of the tired architecture as you have yet to see even a rat scurry along the road. 
-  The only thing that stands out amongst the infinite span of the somber town is the dense and towering wall of forestry up ahead. 
-  I suppose something is better than nothing you tell yourself. 
-  However, even at a distance, you can pick up the palpable feeling of a most vile evil befalling the forest.
+root.title("Halloween special")
 
-   """)
-    around.pack()
-    forest_floor()
+def begining_story():
+  L1 = Label(scrollable_frame, text="Welcome adventurer, what is your name? Enter your Name:")
+  L1.pack()
+  name = Entry(scrollable_frame,width=10)
+  name.pack()
+  def clicked1():
+    res = Label(scrollable_frame, text="Hello " + name.get() + ". Welcome to a world full of wonders, such as wizardry, combat, and treasure.")
+    res.pack()
+    basics = Label(scrollable_frame, text="""You awake inside the Willsdrey village tavern. The fire crackles in the background, emanating a fuzzy orange light.
+The air is warm and smells of Ale and mead. To move, type “north” to go in the northern direction “south” to go in the southern direction, “east” to go east, and “west” to go west.
+You can also go up or down, if the situation suits those commands.
+“Look” will give you a description of the area. “Pick up” will put an object into your inventory, which has a limited capacity.
+Type “help” to find a list of commands and actions.
 
 
-  def forest_floor():
-    stand = Label(scrollable_frame, text = """You stand in a forest
-          What would you like to do. Type help if you have no clue whats going on.""")
-    stand.pack()
-    First = Entry(scrollable_frame, width = 10)
-    First.pack()
-    def check1():
-      first = {"north": north2, "west": west2, "east": east2, "south": south2, "look": look2, "help": help2}
-      first[First]()
-    btn_first = Button(scrollable_frame, text="Save", command=check1)
-    btn_first.pack()
+                                     """)
+    basics.pack()
+    tavern_floor()
+  btn = Button(scrollable_frame, text="Save", command=clicked1)
+  btn.pack()
+
+  
+def tavern_floor():
+  tavern = Label(scrollable_frame, text="""You awake in a medieval tavern. The fireplace crackles in the background, and the air smells of Ale and meat.
+                                          Your head hurts badly and your vision is blurred.
+                 What would you like to do. Type help if you have no clue whats going on.""")
+  tavern.pack()
+  Begining = Entry(scrollable_frame,width=10)
+  Begining.pack()
+  begining = {"north": north1, "west": west1, "east": east1, "south": south1, "look": look1, "help": help1}
+  def check():
+    if str(Begining.get()) in begining.keys():
+      begining[str(Begining.get())]()
+    else:
+      tavern_floor()
+  btn1 = Button(scrollable_frame, text="Action", command=check)
+  btn1.pack()
+
   
   
 
-  def help2():
-    help2 = Label(scrollable_frame, text = """
+def help1():
+  hep = Label(scrollable_frame, text = """
 
-  To move, type “n” or “north” to go in the northern direction "s” to go in the southern direction, “e” to go east, and “w” to go west.
-    You can also go up or down, if the situation suits those commands. 
-    "Look" will give you a description of the area. "Pick up" will put an object into your inventory, which has a limited capacity. 
-    Type "help" to find a list of commands and actions.""")
-    halp2.pack()
+  To move, type “north” to go in the northern direction "south” to go in the southern direction,
+  “east” to go east, and “west” to go west.
+  You can also go up or down, if the situation suits those commands. 
+  "Look" will give you a description of the area. "Pick up" will put an object into your inventory, which has a limited capacity. 
+
+  """)
+  hep.pack()
+  tavern_floor()
+
+
+def look1():
+  look = Label(scrollable_frame, text = """
+
+  To your west is a young girl crying in the corner 
+    A door is to your east, and the is a bar to your north with a bartender behind it
+  A lastly a fireplace crackles to the south.
+     """)
+  look.pack()
+  tavern_floor()
+
+  
+def north1():
+  bartender = Label(scrollable_frame, text = """Good evening to you weary adventurer, here’s to a quiet night after a long day, eh? What’ll it be?
+                                          Honey Mead - 1gp
+                                          Stiffler Amber Ale - 2gp
+                                          Bubbling Cider - 4gp
+                                          Wine - 8gp
+                                          Flee: """)
+  bartender.pack()
+  first_question = Entry(scrollable_frame,width=10)
+  first_question.pack()
+  def clicked2():
+    if first_question.get().lower() == "honey mead":
+      money = Label(scrollable_frame, text = """The bartender sinks beneath the Oak plank bar table.
+                      While he’s doing this, you notice how weathered and worn the table is after years of abuse from unruly patrons.
+                    Before you can stare for too long, the barman catches your eyes again, only this time holding a plain but a delicious-looking glass of mead in his hands.""")
+      money.pack()
+      north1()
+    elif first_question.get().lower() == "stiffler amber ale":
+      money1 = Label(scrollable_frame, text = """The bartender calls over to a passing barmaid with rows of heavy pint glasses full of radiant golden Ale.
+                     It's such an entrancing sight to behold you almost don't notice the barman zipping up his pants.""")
+      money1.pack()
+      north1()
+    elif first_question.get().lower == "bubbling cider":
+      money2 = Label(scrollable_frame, text = """You rack your brain thinking about what devilish incantations were involved in concocting this bubbling beverage.
+                     Nevertheless, down the hatch.""")
+      money2.pack()
+      north1()
+    elif first_question.get().lower() == "wine":
+      money3 = Label(scrollable_frame, text = "Here’s your wine, you snob.")
+      money3.pack()
+      north1()
+    elif first_question.get().lower == "flee":
+      liquor = Label(scrollable_frame, text = "It looks like you couldn’t handle your liquor. Before you can move a muscle, you begin to feel your consciousness slipping away and the musty Tavern floor beckoning you into it’s comforting arms as you fall off the barstool.")  
+      tavern_floor()
+    else:
+      dwarf = Label(scrollable_frame, text = "You dwarf, speak clearly.")
+      north1()
+      
+  btn = Button(scrollable_frame, text="Ask", command=clicked2)
+  btn.pack()
+  
+
+      
+def west1():
+  girl = Label(scrollable_frame, text = """A young girl asks 'Are you here to help me?'
+                                        yes/no: """)
+  girl.pack()
+  girl_question = Entry(scrollable_frame,width=10)
+  girl_question.pack()
+  def clicked3():
+    if girl_question.get().lower() == "yes":
+      thank = Label(scrollable_frame, text = "Thank the Dragon lord somebody is here to help! I have lost my magical box, help me find it.")
+      thank.pack()
+      tavern_floor()
+    elif girl_question.get().lower() == "no":
+      tavern_floor()
+    else:
+      tavern_floor()
+  btn = Button(scrollable_frame, text="Check", command=clicked3)
+  btn.pack()
+    
+def east1():
+  if questcounter == 1:
+      door = LAbel(scrollable_frame, text = "To the east is a door, wich you walk through")
+      door.pack()
+      next_story()
+  else:
+      door2 = Label(scrollable_frame, text = "You see a door but youre not strong enough yet please come back later.")
+      door2.pack()
+      tavern_floor()
+
+      
+def south1():
+    fireplace = Label(scrollable_frame, text = "A fireplace roars in front of you. You reach out to touch it and get burned.")
+    fireplace.pack()
     tavern_floor()
 
 
-  def look2():
-    look2 = Label(scrollable_frame, text = """
 
-  To your west is rickety bridge. 
-      A wise looking tree is to your east, and to your north is a farmhouse that looks like its falling apart. There is a town to the south.
+def next_story():
+    outside = Label(scrollable_frame, text = """You step outside
 
-       """)
-    look2.pack()
-    forest_floor()
-
-  
-  def north2():
-    north2 = Label(scrollable_frame, text = """You walk torward the farmhouse, but run into a group of forest nymphs.
-    You quickly count how many there are, but get to tired and stop halfway. All you know is that there is a lot.
-    They start running at you and shriking madly.
-    What would you like to do?
-      -Attack
-      -Seduce
-      -Run
-      """)
-    north2.pack()
-    nymph = Entry(scrollable_frame, width = 10)
-    nymph.pack()
-    def nymph_action():
-      if nymph.get().lower() == "attack":
-        attack = Label(scrollable_frame, text = """You charge at them hoping to get a lucky punch. The one in the lead pushes you over and you get trampled on.
-        Before your mind went unconcious you could see them all looking at you hungrily.""")
-        attack.pack()
-        forest_floor()
-      elif nymph.get().lower() == "seduce":
-          morning = Label(scrollable_frame, text = "You wake up the next morning ready to get on with your day.")
-          morning.pack()
-          farmhouse()
-      else:
-          forest_floor()
-    nymph_btn = Button(scrollable_frame, text="Action", command=clicked1)
-    nymph_btn.pack()
-      
-  def farmhouse():
-    farmhouse = Label(scrollable_frame, text ="""Before you is an old farmhouse. It appears empty and abandoned.
-            This old and rusty shed is surrounded by old hay, and the rotting dead carcases of farm animals. 
-            There is a large door waiting to be opened, but is locked tight by a large iron bolt.
-                    What would you like to do?
-                        -Key
-                        -Lockpick
-                        -Flee
-                        -Sneak
-                          """)
-    farmhouse.pack()
-    farm = Entry(scrollable_frame, width = 10)
-    farm.pack()
-    def farm_action():
-      if farm.get().lower() == "lockpick":
-        Lockpick = Label(scrollable_frame, text = """You attemt to pick the lock with a wire you find on the ground. 
-        The wire breaks the moment you put it into the lock. Feeling frustration you attack it with a wooden plank. 
-        It also breaks.""")
-        Lockpick.pack()
-        farmhouse()
-      elif farm.get().lower() == "key":
-        if farm_key == 1:
-          key1 = Label(scrollable_frame, text = "The key unlocks the lock and you step inside.")
-          key1.pack()
-          farm_end()
-        else:
-          key2 = Label(scrollable_frame, text ="You dont have a key dumb dumb")
-          key2.pack()
-          farmhouse()
-      elif farm.get().lower() == "shadowwalk":
-        crack = Label(scrollable_frame, text ="""You try to go through a crack you see in the wall. 
-        Suddenly you hit a wall that wasnt there before and get knocked back. It happens every time you do this.""")
-        crack.pack()
-      else:
-        forest_floor()
-    farm_btn = Button(scrollable_frame, text="Action", command=farm_action)
-    farm_btn.pack()
-
-  def west2():
-    global farm_key
-  
-    raven = Label(scrollable_frame, text = """As you walk along the leaf-strewn path, you notice that the woods become more dense. 
-    The light of day is less visible as the trees grow larger and crowd together, their wide branches intertwining.
-    Birds also seem to be less common here, except for the occasional caw of a crow or raven.
-
-      You continue torward the direction of the bridge and you notice a smell.")
-
-        A TROLL has come across your path!!! It looks at you with its beady, almost beetle like eyes as sap drips from its mouth.
-      
-      It throws a large axe in your direction, LOOK OUT!
-
-      What would you like to do?
-                  -Dodge
-                  -Catch
-                  -Flee
-                  """)
-    raven.pack()
-    troll = Entry(scrollable_frame, width = 10)
-    troll.pack()
-
-    def trol_action():               
-      if troll.get().lower() == "dodge":
-        print("""You dodge the axe and it hit a rock sending it flying in the air. 
-        When you look up the troll is dead with his own axe sticking up from his head.
-        You search his body and kind a key. You try to cross the bridge but it colapses under you forcing you to retreat.""")
-        farmkey += 1
-        forest_floor()
-      elif troll.get().lower() == "catch":
-        print("""For some reason you decided to catch a hundred pound axe.
-        Needles to say you lost your arm, but an angel came down and said "I will regrow your arm but you will have to start over" """)
-        forest_floor()
-      else: 
-        print("You run away with your life")
-        forest_floor()
-    troll_btn = Button(scrollable_frame, text="Action", command=troll_action)
-    troll_btn.pack()
+          """)
+    outside.pack()
+    Forest()
 
 
 
-    
-  def east2():
-    print("""You walk torward the wise looking tree but stop in shock as it starts speaking to you.
-        
-           'What do you seek dear traveler' the Wise tree says.""")
-    wise_tree = input("""What would you like to ask?
-                       -Who are you?
-                       -Can you help me?
-                       -Flee
-                        """).lower()
-    if wise_tree == "who are you?":
-      print("""I am the tree of wisdom, I understand all that is contained in this forest!""")
-    elif wise_tree == "can you help me?":
-      print("""Within the trees is the treasure you seek, well,well well, the secrets I keep. 
-      Live, die, give up, or try, the way to salvation is through the other side.""")
-    else:
-      forest_floor()
-
-      
-  def south2():
-      print("""You walk to the town """)
-      if shield == 1:
-        print("Gaurd: Ah okay you may go then.")
-      
-      else:
-        print("Gaurd: Hah he doesnt have the shield turn back then you arnt powerful enough.")
-        forest_floor()
 
 
-  first_story()
 
-3Make sure this is at the end to get the scrollbar 
+
+
+begining_story()
+
 container.pack()
 canvas.pack(side="left", fill="both", expand=True)
 scrollbar.pack(side="right", fill="y")
 
 root.mainloop()
-
-
- 
