@@ -1,0 +1,140 @@
+from tkinter import *
+import tkinter as tk
+from tkinter import ttk
+
+
+root = tk.Tk()
+container = ttk.Frame(root)
+canvas = tk.Canvas(container)
+scrollbar = ttk.Scrollbar(container, orient="vertical", command=canvas.yview)
+scrollable_frame = ttk.Frame(canvas)
+
+
+scrollable_frame.bind(
+    "<Configure>",
+    lambda e: canvas.configure(
+        scrollregion=canvas.bbox("all"), 
+        width = 900, height = 900
+    )
+)
+
+canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+
+canvas.configure(yscrollcommand=scrollbar.set)
+
+
+root.geometry('1000x1000')
+
+root.title("Halloween special")
+
+def drunk():
+    def begining_story():
+        basics = Label(scrollable_frame, text="""You awake inside the Willsdrey village tavern. The fire crackles in the background, emanating a fuzzy orange light.
+The air is warm and smells of Ale and mead. To move, type “north” to go in the northern direction “south” to go in the southern direction, “east” to go east, and “west” to go west.
+You can also go up or down, if the situation suits those commands.
+“Look” will give you a description of the area. “Pick up” will put an object into your inventory, which has a limited capacity.
+Type “help” to find a list of commands and actions.
+
+
+                                     """)
+        basics.pack()
+        tavern_floor()
+
+
+  
+    def tavern_floor():
+      tavern = Label(scrollable_frame, text="""
+                 What would you like to do. Type help if you have no clue whats going on.
+
+1.Leave the tavern
+2.Look Around
+""")
+      tavern.pack()
+      Begining = Entry(scrollable_frame,width=10)
+      Begining.pack()
+      begining = {"leave": west1,"look": look1, "help": help1}
+      def check():
+        if str(Begining.get()) in begining.keys():
+          begining[str(Begining.get())]()
+        else:
+          tavern_floor()
+      btn1 = Button(scrollable_frame, text="Action", command=check)
+      btn1.pack()
+
+  
+  
+
+    def help1():
+      hep = Label(scrollable_frame, text = """
+
+  To move, type “north” to go in the northern direction "south” to go in the southern direction,
+  “east” to go east, and “west” to go west.
+  You can also go up or down, if the situation suits those commands. 
+  "Look" will give you a description of the area. "Pick up" will put an object into your inventory, which has a limited capacity. 
+
+  """)
+      hep.pack()
+      tavern_floor()
+
+
+    def look1():
+      look = Label(scrollable_frame, text = """
+
+You struggle to regain your mental faculties in order to look around but strangely enough you don’t have to look too hard.
+Right beside you is a broken bottle of rum.
+     """)
+      look.pack()
+      north1()
+
+  
+    def north1():
+      bartender = Label(scrollable_frame, text = """
+1.Take Bottle
+2.Hair of the Dog that bit You
+3.Leave
+""")
+      bartender.pack()
+      first_question = Entry(scrollable_frame,width=10)
+      first_question.pack()
+  def clicked2():
+        if first_question.get().lower() == "take bottle":
+          money = Label(scrollable_frame, text = """It’s not much, however, perhaps it could prove useful as a makeshift shank in the event of a fight.""")
+          money.pack()
+          north1()
+        elif first_question.get().lower() == "hair of the dog that bit you":
+          money1 = Label(scrollable_frame, text = """There’s more than one reason you don’t want to be seen sipping the leftover grog from this bottle.
+As soon as you’re finished you make haste out the door.""")
+          money1.pack()
+          north1()
+        elif first_question.get().lower == "flee":
+          west1()
+        else:
+          dwarf = Label(scrollable_frame, text = "What?")
+          north1()
+      
+      btn = Button(scrollable_frame, text="Ask", command=clicked2)
+      btn.pack()
+  
+
+      
+    def west1():
+      girl = Label(scrollable_frame, text = """In hopes of avoiding any fees incurred from your extended stay, you quickly will yourself through the excruciating pain of getting to your feet and
+haphazardly throw yourself out onto the streets.""")
+      girl.pack()
+  
+
+    
+
+
+
+
+
+
+
+    begining_story()
+
+container.pack()
+canvas.pack(side="left", fill="both", expand=True)
+scrollbar.pack(side="right", fill="y")
+
+root.mainloop()
