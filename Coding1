@@ -1,7 +1,7 @@
 from tkinter import *
 import tkinter as tk
 from tkinter import ttk
-
+ 
 
 
 
@@ -12,38 +12,66 @@ def Forest(scrollable_frame):
   shadowwalk = 0
 
   def first_story():
-    around = Label(scrollable_frame, text = """You are in the midst of a uniquely unremarkable city afront rows of monotonously lifeless and dilapidated wood buildings mirrored across 
-  the opposite side of an appropriately dull beaten dirt path.
-  It seems the term lifeless not only fits the description of the tired architecture as you have yet to see even a rat scurry along the road. 
-  The only thing that stands out amongst the infinite span of the somber town is the dense and towering wall of forestry up ahead. 
-  I suppose something is better than nothing you tell yourself. 
-  However, even at a distance, you can pick up the palpable feeling of a most vile evil befalling the forest.
+    around = Label(scrollable_frame, text = """The town you find now envelopes you is bustling with life in every corner from the throngs of rushing townsfolk to the
+grotto rats scouring the gutters for their next meal;
+this town is brimming with life and culture out of every pore.
+The roads precipitate endlessly beyond the periphery of your vision, however, in your drunken stupor you would rather only familiarize yourself with your immediate surroundings.
+Betwixt the deluge of horse-pulled carts clogging the dirt path, you spot a few notable storefronts.
 
-   """)
+""")
     around.pack()
     forest_floor()
 
 
   def forest_floor():
     stand = Label(scrollable_frame, text = """You stand in a forest
-          What would you like to do. Type help if you have no clue whats going on.""")
+          What would you like to do. Type help if you have no clue whats going on.
+
+1.Creaky Tankard Tavern
+2.Koragon’s Potion Emporium
+3.Godot’s Armor and Weapon Forge
+4.unnamed
+5.Look
+6.Help
+""")
+    stand.pack()
+    First = Entry(scrollable_frame, width = 10)
+    First.pack()
+    first = {"creaky tankard tavern": north2, "koragon’s potion emporium": west2, "godot’s armor and weapon forge": east2, "unnamed": south2, "look": look2, "help": help2}
+    def check1():
+      if str(Begining.get()) in begining.keys():
+        begining[str(Begining.get())]()
+      else:
+        forest_floor()
+    btn1 = Button(scrollable_frame, text="Action", command=check1)
+    btn1.pack()
+    
+  def forest_rawr():
+    stand = Label(scrollable_frame, text = """You stand in a forest
+          What would you like to do. Type help if you have no clue whats going on.
+
+1.Creaky Tankard Tavern
+2.Koragon’s Potion Emporium
+3.Godot’s Armor and Weapon Forge
+4.unnamed
+5.Third Party
+6.Help
+""")
     stand.pack()
     First = Entry(scrollable_frame, width = 10)
     First.pack()
     def check1():
-      first = {"north": north2, "west": west2, "east": east2, "south": south2, "look": look2, "help": help2}
+      first = {"creaky tankard tavern": north2, "koragon’s potion emporium": west2, "godot’s armor and weapon forge": east2, "unnamed": south2, "third party": thirdparty, "help": help2}
       first[First]()
     btn_first = Button(scrollable_frame, text="Save", command=check1)
     btn_first.pack()
-  
-  
 
   def help2():
     help2 = Label(scrollable_frame, text = """
 
   To move, type “n” or “north” to go in the northern direction "s” to go in the southern direction, “e” to go east, and “w” to go west.
     You can also go up or down, if the situation suits those commands. 
-    "Look" will give you a description of the area. "Pick up" will put an object into your inventory, which has a limited capacity. 
+    "Look" will give you a description of the area.
     Type "help" to find a list of commands and actions.""")
     halp2.pack()
     tavern_floor()
@@ -51,78 +79,49 @@ def Forest(scrollable_frame):
 
   def look2():
     look2 = Label(scrollable_frame, text = """
-
-  To your west is rickety bridge. 
-      A wise looking tree is to your east, and to your north is a farmhouse that looks like its falling apart. There is a town to the south.
-
+Though it’s difficult to make anything out through the commotion, in the stillness of the vacant sky you catch a glimpse of a towering forest peeking out above the skyline.
+Even at this distance, you can feel the sinister gaze cast by the Arboreal Monoliths. Though somehow, at the same time, something about them you can’t quite describe invites you into their depths.
+Before you can gawk any longer your trance is interrupted by the guttural screams of two men brawling on the ground just beside you.
+You notice that they appear to be vying over a medium sized sack wrapped in twine.
        """)
     look2.pack()
     forest_floor()
 
   
   def north2():
-    north2 = Label(scrollable_frame, text = """You walk torward the farmhouse, but run into a group of forest nymphs.
-    You quickly count how many there are, but get to tired and stop halfway. All you know is that there is a lot.
-    They start running at you and shriking madly.
-    What would you like to do?
-      -Attack
-      -Seduce
-      -Run
-      """)
-    north2.pack()
-    nymph = Entry(scrollable_frame, width = 10)
-    nymph.pack()
-    def nymph_action():
-      if nymph.get().lower() == "attack":
-        attack = Label(scrollable_frame, text = """You charge at them hoping to get a lucky punch. The one in the lead pushes you over and you get trampled on.
-        Before your mind went unconcious you could see them all looking at you hungrily.""")
-        attack.pack()
-        forest_floor()
-      elif nymph.get().lower() == "seduce":
-          morning = Label(scrollable_frame, text = "You wake up the next morning ready to get on with your day.")
-          morning.pack()
-          farmhouse()
-      else:
-          forest_floor()
-    nymph_btn = Button(scrollable_frame, text="Action", command=clicked1)
-    nymph_btn.pack()
-      
-  def farmhouse():
-    farmhouse = Label(scrollable_frame, text ="""Before you is an old farmhouse. It appears empty and abandoned.
-            This old and rusty shed is surrounded by old hay, and the rotting dead carcases of farm animals. 
-            There is a large door waiting to be opened, but is locked tight by a large iron bolt.
-                    What would you like to do?
-                        -Key
-                        -Lockpick
-                        -Flee
-                        -Sneak
-                          """)
-    farmhouse.pack()
-    farm = Entry(scrollable_frame, width = 10)
-    farm.pack()
-    def farm_action():
-      if farm.get().lower() == "lockpick":
-        Lockpick = Label(scrollable_frame, text = """You attemt to pick the lock with a wire you find on the ground. 
-        The wire breaks the moment you put it into the lock. Feeling frustration you attack it with a wooden plank. 
-        It also breaks.""")
+    drunker()
+
+
+  def thirdparty():
+        fight = Label(scrollable_frame, text = """What would you like to do?
+1.Attack Left Man
+2.Attack Right Man
+3.Dive
+
+                  """)
+    fight.pack()
+    choose = Entry(scrollable_frame, width = 10)
+    choose.pack()
+    def check2():
+      if choose.get().lower() == "attack left man":
+        Lockpick = Label(scrollable_frame, text = """Since the man is already preoccupied you get the first attack action. The man on the right seems happy to have the aid and gives you the bag.
+The bag contains 50 gold and a fishhook""")
         Lockpick.pack()
+        forest_rawr()
+      elif choose.get().lower() == "attack right man":
+        key1 = Label(scrollable_frame, text = """Since the man is already preoccupied you get the first attack action. The man on the left seems happy to have the aid and gives you the bag.
+                     The bag contains 50 gold and a fishhook""")
+        key1.pack()
+        forest_rawr()
+      elif choose.get() == "dive":
+        key2 = Label(scrollable_frame, text ="""With the speed and dexterity of a circus monkey you lunge forward between the two brawlers and manage
+                     to grab the sack and disappear into the surrounding crowd.
+                     The bag contains 50 gold and a fishhook""")
+        key2.pack()
         farmhouse()
-      elif farm.get().lower() == "key":
-        if farm_key == 1:
-          key1 = Label(scrollable_frame, text = "The key unlocks the lock and you step inside.")
-          key1.pack()
-          farm_end()
-        else:
-          key2 = Label(scrollable_frame, text ="You dont have a key dumb dumb")
-          key2.pack()
-          farmhouse()
-      elif farm.get().lower() == "shadowwalk":
-        crack = Label(scrollable_frame, text ="""You try to go through a crack you see in the wall. 
-        Suddenly you hit a wall that wasnt there before and get knocked back. It happens every time you do this.""")
-        crack.pack()
       else:
         forest_floor()
-    farm_btn = Button(scrollable_frame, text="Action", command=farm_action)
+    farm_btn = Button(scrollable_frame, text="Action", command=check2)
     farm_btn.pack()
 
   def west2():
