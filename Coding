@@ -162,14 +162,9 @@ def west1():
   btn.pack()
     
 def east1():
-  if questcounter == 1:
-      door = Label(scrollable_frame, text = "To the east is a door, wich you walk through")
-      door.pack()
-      next_story()
-  else:
-      door2 = Label(scrollable_frame, text = "You see a door but youre not strong enough yet please come back later.")
-      door2.pack()
-      tavern_floor()
+  door = Label(scrollable_frame, text = "To the east is a door, wich you walk through")
+  door.pack()
+  next_story()
 
       
 def south1():
