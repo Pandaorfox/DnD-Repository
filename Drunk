@@ -1,33 +1,13 @@
+from Coding1 import Forest
 from tkinter import *
 import tkinter as tk
 from tkinter import ttk
 
 
-root = tk.Tk()
-container = ttk.Frame(root)
-canvas = tk.Canvas(container)
-scrollbar = ttk.Scrollbar(container, orient="vertical", command=canvas.yview)
-scrollable_frame = ttk.Frame(canvas)
 
+def drunker(scrollable_frame):
 
-scrollable_frame.bind(
-    "<Configure>",
-    lambda e: canvas.configure(
-        scrollregion=canvas.bbox("all"), 
-        width = 900, height = 900
-    )
-)
-
-canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
-
-canvas.configure(yscrollcommand=scrollbar.set)
-
-
-root.geometry('1000x1000')
-
-root.title("Halloween special")
-
-def drunk():
+    
     def begining_story():
         basics = Label(scrollable_frame, text="""You awake inside the Willsdrey village tavern. The fire crackles in the background, emanating a fuzzy orange light.
 The air is warm and smells of Ale and mead. To move, type “north” to go in the northern direction “south” to go in the southern direction, “east” to go east, and “west” to go west.
@@ -96,11 +76,11 @@ Right beside you is a broken bottle of rum.
       bartender.pack()
       first_question = Entry(scrollable_frame,width=10)
       first_question.pack()
-  def clicked2():
+      def clicked2():
         if first_question.get().lower() == "take bottle":
-          money = Label(scrollable_frame, text = """It’s not much, however, perhaps it could prove useful as a makeshift shank in the event of a fight.""")
-          money.pack()
-          north1()
+            money = Label(scrollable_frame, text = """It’s not much, however, perhaps it could prove useful as a makeshift shank in the event of a fight.""")
+            money.pack()
+            north1()
         elif first_question.get().lower() == "hair of the dog that bit you":
           money1 = Label(scrollable_frame, text = """There’s more than one reason you don’t want to be seen sipping the leftover grog from this bottle.
 As soon as you’re finished you make haste out the door.""")
@@ -121,20 +101,10 @@ As soon as you’re finished you make haste out the door.""")
       girl = Label(scrollable_frame, text = """In hopes of avoiding any fees incurred from your extended stay, you quickly will yourself through the excruciating pain of getting to your feet and
 haphazardly throw yourself out onto the streets.""")
       girl.pack()
+      Forest(scrollable_frame)
+      
   
-
-    
-
-
-
-
 
 
 
     begining_story()
-
-container.pack()
-canvas.pack(side="left", fill="both", expand=True)
-scrollbar.pack(side="right", fill="y")
-
-root.mainloop()
