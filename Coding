@@ -1,4 +1,5 @@
 from Coding1 import Forest
+from Drunk import drunker
 from tkinter import *
 import tkinter as tk
 from tkinter import ttk
@@ -28,6 +29,8 @@ root.geometry('1000x1000')
 
 root.title("Halloween special")
 
+questcounter = 0
+
 def begining_story():
   L1 = Label(scrollable_frame, text="Welcome adventurer, what is your name? Enter your Name:")
   L1.pack()
@@ -36,13 +39,12 @@ def begining_story():
   def clicked1():
     res = Label(scrollable_frame, text="Hello " + name.get() + ". Welcome to a world full of wonders, such as wizardry, combat, and treasure.")
     res.pack()
-    basics = Label(scrollable_frame, text="""To move, type “n” or “north” to go in the northern direction "s” to go in the southern direction, “e” to go east, and “w” to go west.
-                                     You can also go up or down, if the situation suits those commands. 
-                                     "Look" will give you a description of the area.  
-                                     Type "help" to find a list of commands and actions.
+    basics = Label(scrollable_frame, text="""You awake inside the Willsdrey village tavern. The fire crackles in the background, emanating a fuzzy orange light.
+The air is warm and smells of Ale and mead. To move, type “north” to go in the northern direction “south” to go in the southern direction, “east” to go east, and “west” to go west.
+You can also go up or down, if the situation suits those commands.
+“Look” will give you a description of the area. “Pick up” will put an object into your inventory, which has a limited capacity.
+Type “help” to find a list of commands and actions.
 
-You awake in a medieval tavern. The fireplace crackles in the background, and the air smells of beer and meat.
-      Your head hurts badly and your vision is blurred.
 
                                      """)
     basics.pack()
@@ -52,7 +54,8 @@ You awake in a medieval tavern. The fireplace crackles in the background, and th
 
   
 def tavern_floor():
-  tavern = Label(scrollable_frame, text="""You stand in the tavern.
+  tavern = Label(scrollable_frame, text="""You awake in a medieval tavern. The fireplace crackles in the background, and the air smells of Ale and meat.
+                                          Your head hurts badly and your vision is blurred.
                  What would you like to do. Type help if you have no clue whats going on.""")
   tavern.pack()
   Begining = Entry(scrollable_frame,width=10)
@@ -105,23 +108,30 @@ def north1():
   first_question.pack()
   def clicked2():
     if first_question.get().lower() == "honey mead":
-      money = Label(scrollable_frame, text = "You have no money sorry.")
+      money = Label(scrollable_frame, text = """The bartender sinks beneath the Oak plank bar table.
+                      While he’s doing this, you notice how weathered and worn the table is after years of abuse from unruly patrons.
+                    Before you can stare for too long, the barman catches your eyes again, only this time holding a plain but a delicious-looking glass of mead in his hands.""")
       money.pack()
       north1()
     elif first_question.get().lower() == "stiffler amber ale":
-      money1 = Label(scrollable_frame, text = "You have no money sorry.")
+      money1 = Label(scrollable_frame, text = """The bartender calls over to a passing barmaid with rows of heavy pint glasses full of radiant golden Ale.
+                     It's such an entrancing sight to behold you almost don't notice the barman zipping up his pants.""")
       money1.pack()
       north1()
     elif first_question.get().lower == "bubbling cider":
-      money2 = Label(scrollable_frame, text = "You have no money sorry.")
+      money2 = Label(scrollable_frame, text = """You rack your brain thinking about what devilish incantations were involved in concocting this bubbling beverage.
+                     Nevertheless, down the hatch.""")
       money2.pack()
       north1()
     elif first_question.get().lower() == "wine":
-      money3 = Label(scrollable_frame, text = "You have no money sorry.")
+      money3 = Label(scrollable_frame, text = "Here’s your wine, you snob.")
       money3.pack()
       north1()
-    elif first_question.get().lower == "flee":
-      tavern_floor()
+    elif first_question.get().lower() == "flee":
+      liquor = Label(scrollable_frame, text = """It looks like you couldn’t handle your liquor. Before you can move a muscle,
+                     you begin to feel your consciousness slipping away and the musty Tavern floor beckoning you into it’s comforting arms as you fall off the barstool.""")  
+      liquor.pack()
+      drunker(scrollable_frame)
     else:
       dwarf = Label(scrollable_frame, text = "You dwarf, speak clearly.")
       north1()
@@ -138,9 +148,11 @@ def west1():
   girl_question = Entry(scrollable_frame,width=10)
   girl_question.pack()
   def clicked3():
+    global questcounter
     if girl_question.get().lower() == "yes":
       thank = Label(scrollable_frame, text = "Thank the Dragon lord somebody is here to help! I have lost my magical box, help me find it.")
       thank.pack()
+      questcounter += 1
       tavern_floor()
     elif girl_question.get().lower() == "no":
       tavern_floor()
@@ -151,7 +163,7 @@ def west1():
     
 def east1():
   if questcounter == 1:
-      door = LAbel(scrollable_frame, text = "To the east is a door, wich you walk through")
+      door = Label(scrollable_frame, text = "To the east is a door, wich you walk through")
       door.pack()
       next_story()
   else:
@@ -172,12 +184,7 @@ def next_story():
 
           """)
     outside.pack()
-    Forest()
-
-
-
-
-
+    Forest(scrollable_frame)
 
 
 
