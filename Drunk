@@ -9,14 +9,10 @@ def drunker(scrollable_frame):
 
     
     def begining_story():
-        basics = Label(scrollable_frame, text="""You awake inside the Willsdrey village tavern. The fire crackles in the background, emanating a fuzzy orange light.
-The air is warm and smells of Ale and mead. To move, type “north” to go in the northern direction “south” to go in the southern direction, “east” to go east, and “west” to go west.
-You can also go up or down, if the situation suits those commands.
-“Look” will give you a description of the area. “Pick up” will put an object into your inventory, which has a limited capacity.
-Type “help” to find a list of commands and actions.
-
-
-                                     """)
+        basics = Label(scrollable_frame, text="""You open your eyes to a familiar sight, the Creaky Tankard Tavern.
+From where you awoke you are staring directly upwards at the lanterns hung on the ceiling and the
+underbelly of the bar table, oh, you’re on the floor.
+Fortunately for you, the bar keepers must have been too exhausted to drag you out onto the streets.                                     """)
         basics.pack()
         tavern_floor()
 
