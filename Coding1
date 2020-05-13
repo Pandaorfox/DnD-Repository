@@ -7,10 +7,8 @@ from tkinter import ttk
 
 def Forest(scrollable_frame):
   
-  farmkey = 0
-  lockpick = 0
-  shadowwalk = 0
-
+  spectecles = False
+  fishook = False
   def first_story():
     around = Label(scrollable_frame, text = """The town you find now envelopes you is bustling with life in every corner from the throngs of rushing townsfolk to the
 grotto rats scouring the gutters for their next meal;
@@ -27,45 +25,28 @@ Betwixt the deluge of horse-pulled carts clogging the dirt path, you spot a few 
     stand = Label(scrollable_frame, text = """You stand in a forest
           What would you like to do. Type help if you have no clue whats going on.
 
-1.Creaky Tankard Tavern
-2.Koragon’s Potion Emporium
-3.Godot’s Armor and Weapon Forge
-4.unnamed
+1.Tavern
+2.Old Man
+3.Forge
+4.Dark Hole
 5.Look
+6.Third Party
 6.Help
 """)
     stand.pack()
     First = Entry(scrollable_frame, width = 10)
     First.pack()
-    first = {"creaky tankard tavern": north2, "koragon’s potion emporium": west2, "godot’s armor and weapon forge": east2, "unnamed": south2, "look": look2, "help": help2}
+    first = {"tavern": north2, "old man": west2, "forge": east2, "dark hole": south2, "look": look2, "help": help2, "third party": thirdparty,}
     def check1():
-      if str(Begining.get()) in begining.keys():
-        begining[str(Begining.get())]()
+      if First.get().lower() in first.keys():
+        first[First.get().lower()]()
       else:
         forest_floor()
     btn1 = Button(scrollable_frame, text="Action", command=check1)
     btn1.pack()
+  
+
     
-  def forest_rawr():
-    stand = Label(scrollable_frame, text = """You stand in a forest
-          What would you like to do. Type help if you have no clue whats going on.
-
-1.Creaky Tankard Tavern
-2.Koragon’s Potion Emporium
-3.Godot’s Armor and Weapon Forge
-4.unnamed
-5.Third Party
-6.Help
-""")
-    stand.pack()
-    First = Entry(scrollable_frame, width = 10)
-    First.pack()
-    def check1():
-      first = {"creaky tankard tavern": north2, "koragon’s potion emporium": west2, "godot’s armor and weapon forge": east2, "unnamed": south2, "third party": thirdparty, "help": help2}
-      first[First]()
-    btn_first = Button(scrollable_frame, text="Save", command=check1)
-    btn_first.pack()
-
   def help2():
     help2 = Label(scrollable_frame, text = """
 
@@ -74,7 +55,7 @@ Betwixt the deluge of horse-pulled carts clogging the dirt path, you spot a few 
     "Look" will give you a description of the area.
     Type "help" to find a list of commands and actions.""")
     halp2.pack()
-    tavern_floor()
+    forest_floor()
 
 
   def look2():
@@ -89,11 +70,11 @@ You notice that they appear to be vying over a medium sized sack wrapped in twin
 
   
   def north2():
-    drunker()
+    tavern_floor()
 
 
   def thirdparty():
-        fight = Label(scrollable_frame, text = """What would you like to do?
+    fight = Label(scrollable_frame, text = """What would you like to do?
 1.Attack Left Man
 2.Attack Right Man
 3.Dive
@@ -103,96 +84,103 @@ You notice that they appear to be vying over a medium sized sack wrapped in twin
     choose = Entry(scrollable_frame, width = 10)
     choose.pack()
     def check2():
+      global fishook
       if choose.get().lower() == "attack left man":
         Lockpick = Label(scrollable_frame, text = """Since the man is already preoccupied you get the first attack action. The man on the right seems happy to have the aid and gives you the bag.
 The bag contains 50 gold and a fishhook""")
         Lockpick.pack()
-        forest_rawr()
+        fishhook = True
+        forest_floor()
       elif choose.get().lower() == "attack right man":
         key1 = Label(scrollable_frame, text = """Since the man is already preoccupied you get the first attack action. The man on the left seems happy to have the aid and gives you the bag.
                      The bag contains 50 gold and a fishhook""")
         key1.pack()
-        forest_rawr()
+        fishhook = True
+        forest_floor()
       elif choose.get() == "dive":
         key2 = Label(scrollable_frame, text ="""With the speed and dexterity of a circus monkey you lunge forward between the two brawlers and manage
                      to grab the sack and disappear into the surrounding crowd.
                      The bag contains 50 gold and a fishhook""")
         key2.pack()
-        farmhouse()
-      else:
+        fishhook = True
         forest_floor()
+      else:
+        thirdparty()
     farm_btn = Button(scrollable_frame, text="Action", command=check2)
     farm_btn.pack()
 
   def west2():
-    global farm_key
-  
-    raven = Label(scrollable_frame, text = """As you walk along the leaf-strewn path, you notice that the woods become more dense. 
-    The light of day is less visible as the trees grow larger and crowd together, their wide branches intertwining.
-    Birds also seem to be less common here, except for the occasional caw of a crow or raven.
-
-      You continue torward the direction of the bridge and you notice a smell.")
-
-        A TROLL has come across your path!!! It looks at you with its beady, almost beetle like eyes as sap drips from its mouth.
-      
-      It throws a large axe in your direction, LOOK OUT!
-
-      What would you like to do?
-                  -Dodge
-                  -Catch
-                  -Flee
+    raven = Label(scrollable_frame, text = """Oh! And how are YOU young man? I knew you would be showing up sometime.
+                    1.Fine
+                    2.Shut Up
+                    3.Leave
                   """)
     raven.pack()
     troll = Entry(scrollable_frame, width = 10)
     troll.pack()
 
-    def trol_action():               
-      if troll.get().lower() == "dodge":
-        print("""You dodge the axe and it hit a rock sending it flying in the air. 
-        When you look up the troll is dead with his own axe sticking up from his head.
-        You search his body and kind a key. You try to cross the bridge but it colapses under you forcing you to retreat.""")
-        farmkey += 1
+    def troll_action():
+      global spectacles
+      if spectacles == True:
+        voice = Label(scrollable_frame, text = """A voice cries out from the distance
+            It is YOU who chose to help ME, and have shown that you are worthy of my help!
+You see the old man hovering above the lake. He snaps his fingers, and a pair of red spectacles appear on the beach before you. He then jets up into the sky, never to be seen again""")
+        voice.pack()
+        spectacles = True
         forest_floor()
-      elif troll.get().lower() == "catch":
-        print("""For some reason you decided to catch a hundred pound axe.
-        Needles to say you lost your arm, but an angel came down and said "I will regrow your arm but you will have to start over" """)
-        forest_floor()
-      else: 
-        print("You run away with your life")
-        forest_floor()
-    troll_btn = Button(scrollable_frame, text="Action", command=troll_action)
-    troll_btn.pack()
+      else:
+        if troll.get().lower() == "fine":
+          quest = Label(scrollable_frame, text = """Well funny you should ask, because I just came down here to do some peaceful fishing, but alas forgot my fishing hook…
+Say, will you help me give my old bones a rest and go find it for me?
+          1.Yes
+          2.No
+          """)
+          quest.pack()
+          quester = Entry(scrollable_frame, width = 10)
+          quester.pack()
+          def quest():
+            if quester.get().lower() == "yes":
+              thanks = Label(scrollable_frame, text = "Thank you young man, I will ensure you are returning to a worthy prize!!!")
+              thanks.pack()
+              forest_floor()
+            else:
+              nothanks = Label(scrollable_frame, text = "Oh. Alright then.")
+              nothanks.pack()
+              forest_floor()
+          quest_btn = Button(scrollable_frame, text="Action", command=quest)
+          quest_btn.pack()
+        elif troll.get().lower() == "shut up":
+          magic = Label(scrollable_frame, text = """The “old man” looks at you with fury in his eyes. He lifts his frail hands and points his boney fingers at you.
+              ALAKAZAM!!!! You explode into a pile of blood and guts.
+ """)
+          magic.pack()
+          west2()
+        elif troll.get().lower() == "leave":
+          bye = Label(scrollable_frame, text = "Bye now")
+          bye.pack()
+          forest_floor()
+        else: 
+          west2()
+      troll_btn = Button(scrollable_frame, text="Action", command=troll_action)
+      troll_btn.pack()
 
 
-
-    
-  def east2():
-    print("""You walk torward the wise looking tree but stop in shock as it starts speaking to you.
-        
-           'What do you seek dear traveler' the Wise tree says.""")
-    wise_tree = input("""What would you like to ask?
-                       -Who are you?
-                       -Can you help me?
-                       -Flee
-                        """).lower()
-    if wise_tree == "who are you?":
-      print("""I am the tree of wisdom, I understand all that is contained in this forest!""")
-    elif wise_tree == "can you help me?":
-      print("""Within the trees is the treasure you seek, well,well well, the secrets I keep. 
-      Live, die, give up, or try, the way to salvation is through the other side.""")
-    else:
-      forest_floor()
-
-      
   def south2():
-      print("""You walk to the town """)
-      if shield == 1:
-        print("Gaurd: Ah okay you may go then.")
+      hole = Label(scrollable_frame, text ="You see a dark hole in the ground. It seems magical but youre not sure.")
+      hole.pack()
+      if spectacles == True:
+        enter = Label(scrollable_frame, text = """Using the spectacles the Old Man gave you you can see a portal.
+                        Entering the portal you arrive at the Underworld.
+
+                        Congratulations, you reached the end for now.""")
+        enter.pack()
       
       else:
-        print("Gaurd: Hah he doesnt have the shield turn back then you arnt powerful enough.")
+        well = Label(scrollable_frame, text ="Oh well nothing special then.")
+        well.pack()
         forest_floor()
 
 
-  first_story()
+  first_story
+
 
