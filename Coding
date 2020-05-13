@@ -16,7 +16,7 @@ scrollable_frame.bind(
     "<Configure>",
     lambda e: canvas.configure(
         scrollregion=canvas.bbox("all"), 
-        width = 900, height = 900
+        width = 1000, height = 900
     )
 )
 
@@ -25,11 +25,12 @@ canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
 canvas.configure(yscrollcommand=scrollbar.set)
 
 
-root.geometry('1000x1000')
+root.geometry('1100x1100')
 
 root.title("Halloween special")
 
 questcounter = 0
+
 
 def begining_story():
   L1 = Label(scrollable_frame, text="Welcome adventurer, what is your name? Enter your Name:")
@@ -148,11 +149,9 @@ def west1():
   girl_question = Entry(scrollable_frame,width=10)
   girl_question.pack()
   def clicked3():
-    global questcounter
     if girl_question.get().lower() == "yes":
       thank = Label(scrollable_frame, text = "Thank the Dragon lord somebody is here to help! I have lost my magical box, help me find it.")
       thank.pack()
-      questcounter += 1
       tavern_floor()
     elif girl_question.get().lower() == "no":
       tavern_floor()
@@ -164,7 +163,7 @@ def west1():
 def east1():
   door = Label(scrollable_frame, text = "To the east is a door, wich you walk through")
   door.pack()
-  next_story()
+  Forest(scrollable_frame)
 
       
 def south1():
