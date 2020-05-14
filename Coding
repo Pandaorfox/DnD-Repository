@@ -1,10 +1,12 @@
+
+#Imports Everything
 from Coding1 import Forest
 from Drunk import drunker
 from tkinter import *
 import tkinter as tk
 from tkinter import ttk
 
-
+#Creates the scrollbar
 root = tk.Tk()
 container = ttk.Frame(root)
 canvas = tk.Canvas(container)
@@ -29,9 +31,10 @@ root.geometry('1100x1100')
 
 root.title("Halloween special")
 
+
 questcounter = 0
 
-
+#Asks for your name and starts the story off
 def begining_story():
   L1 = Label(scrollable_frame, text="Welcome adventurer, what is your name? Enter your Name:")
   L1.pack()
@@ -62,6 +65,8 @@ def tavern_floor():
   Begining = Entry(scrollable_frame,width=10)
   Begining.pack()
   begining = {"north": north1, "west": west1, "east": east1, "south": south1, "look": look1, "help": help1}
+  
+  #Runs whatever you put in the entry
   def check():
     if str(Begining.get()) in begining.keys():
       begining[str(Begining.get())]()
@@ -72,7 +77,7 @@ def tavern_floor():
 
   
   
-
+#The help so you can understand what to do
 def help1():
   hep = Label(scrollable_frame, text = """
 
@@ -85,7 +90,7 @@ def help1():
   hep.pack()
   tavern_floor()
 
-
+#So you can see whats happening
 def look1():
   look = Label(scrollable_frame, text = """
 
@@ -96,7 +101,7 @@ def look1():
   look.pack()
   tavern_floor()
 
-  
+#Bartender
 def north1():
   bartender = Label(scrollable_frame, text = """Good evening to you weary adventurer, here’s to a quiet night after a long day, eh? What’ll it be?
                                           Honey Mead - 1gp
@@ -108,6 +113,8 @@ def north1():
   first_question = Entry(scrollable_frame,width=10)
   first_question.pack()
   def clicked2():
+  
+  #Checks the entry and put out text.
     if first_question.get().lower() == "honey mead":
       money = Label(scrollable_frame, text = """The bartender sinks beneath the Oak plank bar table.
                       While he’s doing this, you notice how weathered and worn the table is after years of abuse from unruly patrons.
@@ -141,7 +148,7 @@ def north1():
   btn.pack()
   
 
-      
+  #You get the quest from here    
 def west1():
   girl = Label(scrollable_frame, text = """A young girl asks 'Are you here to help me?'
                                         yes/no: """)
@@ -165,14 +172,14 @@ def east1():
   door.pack()
   Forest(scrollable_frame)
 
-      
+      #Random Fireplace
 def south1():
     fireplace = Label(scrollable_frame, text = "A fireplace roars in front of you. You reach out to touch it and get burned.")
     fireplace.pack()
     tavern_floor()
 
 
-
+#Puts you to the next file
 def next_story():
     outside = Label(scrollable_frame, text = """You step outside
 
@@ -184,6 +191,7 @@ def next_story():
 
 begining_story()
 
+#Finishes the scrollbar
 container.pack()
 canvas.pack(side="left", fill="both", expand=True)
 scrollbar.pack(side="right", fill="y")
