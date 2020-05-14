@@ -1,10 +1,11 @@
+#Imports everything
 from Coding1 import Forest
 from tkinter import *
 import tkinter as tk
 from tkinter import ttk
 
 
-
+#Gets the scrollbar
 def drunker(scrollable_frame):
 
     
@@ -17,7 +18,7 @@ Fortunately for you, the bar keepers must have been too exhausted to drag you ou
         tavern_floor()
 
 
-  
+  #Crossroads
     def tavern_floor():
       tavern = Label(scrollable_frame, text="""
                  What would you like to do. Type help if you have no clue whats going on.
@@ -39,7 +40,7 @@ Fortunately for you, the bar keepers must have been too exhausted to drag you ou
 
   
   
-
+#The help
     def help1():
       hep = Label(scrollable_frame, text = """
 
@@ -52,7 +53,7 @@ Fortunately for you, the bar keepers must have been too exhausted to drag you ou
       hep.pack()
       tavern_floor()
 
-
+#The look
     def look1():
       look = Label(scrollable_frame, text = """
 
@@ -62,7 +63,7 @@ Right beside you is a broken bottle of rum.
       look.pack()
       north1()
 
-  
+  #Wierd things to pickup
     def north1():
       bartender = Label(scrollable_frame, text = """
 1.Take Bottle
@@ -92,7 +93,7 @@ As soon as you’re finished you make haste out the door.""")
       btn.pack()
   
 
-      
+      #Goinf to new area
     def west1():
       girl = Label(scrollable_frame, text = """In hopes of avoiding any fees incurred from your extended stay, you quickly will yourself through the excruciating pain of getting to your feet and
 haphazardly throw yourself out onto the streets.""")
