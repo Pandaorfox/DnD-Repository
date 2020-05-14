@@ -1,14 +1,16 @@
+#Imports everything
 from tkinter import *
 import tkinter as tk
 from tkinter import ttk
  
 
 
-
+#Gets the scrollbar
 def Forest(scrollable_frame):
   
   spectecles = False
   fishook = False
+  #Starts the town area
   def first_story():
     around = Label(scrollable_frame, text = """The town you find now envelopes you is bustling with life in every corner from the throngs of rushing townsfolk to the
 grotto rats scouring the gutters for their next meal;
@@ -20,7 +22,7 @@ Betwixt the deluge of horse-pulled carts clogging the dirt path, you spot a few 
     around.pack()
     forest_floor()
 
-
+#Makes the so called crossroad
   def forest_floor():
     stand = Label(scrollable_frame, text = """You stand in a forest
           What would you like to do. Type help if you have no clue whats going on.
@@ -46,7 +48,7 @@ Betwixt the deluge of horse-pulled carts clogging the dirt path, you spot a few 
     btn1.pack()
   
 
-    
+  #The help  
   def help2():
     help2 = Label(scrollable_frame, text = """
 
@@ -57,7 +59,7 @@ Betwixt the deluge of horse-pulled carts clogging the dirt path, you spot a few 
     halp2.pack()
     forest_floor()
 
-
+#To see whats happening
   def look2():
     look2 = Label(scrollable_frame, text = """
 Though it’s difficult to make anything out through the commotion, in the stillness of the vacant sky you catch a glimpse of a towering forest peeking out above the skyline.
@@ -72,7 +74,7 @@ You notice that they appear to be vying over a medium sized sack wrapped in twin
   def north2():
     tavern_floor()
 
-
+#Attacking to get box
   def thirdparty():
     fight = Label(scrollable_frame, text = """What would you like to do?
 1.Attack Left Man
@@ -126,6 +128,8 @@ The bag contains 50 gold and a fishhook""")
             It is YOU who chose to help ME, and have shown that you are worthy of my help!
 You see the old man hovering above the lake. He snaps his fingers, and a pair of red spectacles appear on the beach before you. He then jets up into the sky, never to be seen again""")
         voice.pack()
+        
+        #You get the spectacles
         spectacles = True
         forest_floor()
       else:
@@ -164,7 +168,7 @@ Say, will you help me give my old bones a rest and go find it for me?
       troll_btn = Button(scrollable_frame, text="Action", command=troll_action)
       troll_btn.pack()
 
-
+#Underworld area
   def south2():
       hole = Label(scrollable_frame, text ="You see a dark hole in the ground. It seems magical but youre not sure.")
       hole.pack()
